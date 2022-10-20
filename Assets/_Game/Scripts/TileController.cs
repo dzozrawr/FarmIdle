@@ -5,7 +5,16 @@ using UnityEngine;
 public class TileController : MonoBehaviour
 {
     public Collider hitBoxCollider=null;
-    public PlantController plant=null;
+    public Transform placeForPlant=null;
+    private PlantController plant=null;
+
+    private TileState state;
+
+    public PlantController Plant { get => plant; set => plant = value; }
+
+    private void Awake() {
+        state=new TileStartingState(this);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -14,12 +23,19 @@ public class TileController : MonoBehaviour
     }
 
     public void OnHit(){
-        plant.Grow();
-        plant.PlantGrown+=OnPlantGrown;
+        state.OnHit();
+/*         if(plant==null){
+            plant= Instantiate(GameController.Instance.curSelectedPlant,placeForPlant.position, Quaternion.identity,transform);            
+        }
+
+        plant.Plant();
+        plant.PlantGrown+=OnPlantGrown; */
     }
 
     public void OnPlantGrown(){
         Debug.Log("Plant finished growing.");
+
+        state=state.NextState();
 
         plant.PlantGrown-=OnPlantGrown;
     }

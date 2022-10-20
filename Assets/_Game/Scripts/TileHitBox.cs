@@ -9,8 +9,7 @@ public class TileHitBox : MonoBehaviour
 
 
     public void OnHit(){
-        tileController.OnHit();
-        _collider.enabled=false;
+        tileController.OnHit();        
     }
     
 }
