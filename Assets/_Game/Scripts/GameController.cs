@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     public static GameController Instance { get => instance; }
     public static int CoinAmount { get => coinAmount; }
     public PlantController CurSelectedPlant { get => curSelectedPlant; set => curSelectedPlant = value; }
+    public bool IsRaycastActive { get => isRaycastActive; set => isRaycastActive = value; }
 
     private static int coinAmount;
 
