@@ -14,13 +14,15 @@ namespace Aezakmi.Tweens
 
         [Header("Base Tween Settings")]
         [SerializeField] protected int LoopCount;
-        [SerializeField] protected float LoopDuration;
+        [SerializeField] private float loopDuration;
         [SerializeField] protected LoopType LoopType;
         [SerializeField] protected Ease LoopEase;
         [SerializeField] protected float Delay;
         [SerializeField] private bool _playOnAwake;
         [SerializeField] private UnityEvent _eventsOnPlayTween;
         [SerializeField] private UnityEvent _eventsOnComplete;
+
+        public float LoopDuration { get => loopDuration; set => loopDuration = value; }
 
         protected virtual void Awake()
         {

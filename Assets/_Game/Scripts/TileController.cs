@@ -33,7 +33,7 @@ public class TileController : MonoBehaviour
     }
 
     public void OnPlantGrown(){
-        Debug.Log("Plant finished growing.");
+     //   Debug.Log("Plant finished growing.");
 
         state=state.NextState();
 

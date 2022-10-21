@@ -16,9 +16,12 @@ public class TileWithGrownPlantState : TileState
     public override void OnHit()
     {
         tileController.hitBoxCollider.enabled=false;
+
+        tileController.Plant.OnHarvest();
+
         MonoBehaviour.Destroy(tileController.Plant.gameObject);
 
-        Debug.Log("+5 coins!");
+        
 
       //  tileController.Plant.Plant();
        // tileController.Plant.PlantGrown += tileController.OnPlantGrown;

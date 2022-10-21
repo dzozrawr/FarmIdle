@@ -10,6 +10,8 @@ public abstract class PlantController : MonoBehaviour
     protected float growingTime = 0f;
     protected float progress = 0f;
 
+    public int coinWorth=0;
+
     public delegate void Notify();
 
     public event Notify PlantGrown;
@@ -57,4 +59,8 @@ public abstract class PlantController : MonoBehaviour
     }
 
     public abstract void GrowInitThings();
+
+    public virtual void OnHarvest(){
+
+    }
 }

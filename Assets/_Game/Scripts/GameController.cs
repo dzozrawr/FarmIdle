@@ -6,6 +6,9 @@ public class GameController : MonoBehaviour
 {
     private static GameController instance = null;
     public static GameController Instance { get => instance; }
+    public static int CoinAmount { get => coinAmount; }
+
+    private static int coinAmount;
 
     #region Raycast variables
     private Ray ray;
@@ -16,6 +19,11 @@ public class GameController : MonoBehaviour
     private bool isRaycastActive = true;
 
     private Camera mainCamera = null;
+
+    public delegate void GameControllerEvent();
+
+    public GameControllerEvent CoinAmountChanged;
+
     public PlantController curSelectedPlant = null;
 
 
@@ -51,5 +59,17 @@ public class GameController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SetCoinAmount(int newCoinAmount)
+    {
+        coinAmount = newCoinAmount;
+        CoinAmountChanged?.Invoke();
+    }
+
+    public void AddCoins(int coinAmountToAdd)
+    {
+        coinAmount += coinAmountToAdd;
+        CoinAmountChanged?.Invoke();
     }
 }
