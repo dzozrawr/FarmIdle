@@ -19,7 +19,7 @@ public class CylinderPlant : PlantController
     public ProgressCircle progressCircle = null; //special case
 
 
-
+    public CoinUIForPlant coinUIForPlant = null;
 
     protected override void GrowingEffect(float progress)
     {
@@ -47,5 +47,10 @@ public class CylinderPlant : PlantController
     {
         startingScale = plantModel.transform.localScale.x;
         tweenForPlanting.RemoveDelegateOnComplete(Grow);
+    }
+
+    public override void OnHarvest()
+    {
+        coinUIForPlant.PlayCoinEarnAnimationAndDie(coinWorth);
     }
 }

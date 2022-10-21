@@ -8,10 +8,12 @@ public class TileStartingState : TileState
     }
     public override void OnHit()
     {
+        if(!GameController.Instance.CurSelectedPlant) return;
+
         tileController.hitBoxCollider.enabled=false;
         if (tileController.Plant == null)
         {
-            tileController.Plant = MonoBehaviour.Instantiate(GameController.Instance.curSelectedPlant, tileController.placeForPlant.position, Quaternion.identity, tileController.transform);
+            tileController.Plant = MonoBehaviour.Instantiate(GameController.Instance.CurSelectedPlant, tileController.placeForPlant.position, Quaternion.identity, tileController.transform);
         }
 
         tileController.Plant.Plant();

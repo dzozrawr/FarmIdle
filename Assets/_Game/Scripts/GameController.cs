@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     private static GameController instance = null;
     public static GameController Instance { get => instance; }
     public static int CoinAmount { get => coinAmount; }
+    public PlantController CurSelectedPlant { get => curSelectedPlant; set => curSelectedPlant = value; }
 
     private static int coinAmount;
 
@@ -24,7 +25,7 @@ public class GameController : MonoBehaviour
 
     public GameControllerEvent CoinAmountChanged;
 
-    public PlantController curSelectedPlant = null;
+    private PlantController curSelectedPlant = null;
 
 
 

@@ -302,7 +302,7 @@ MonoBehaviour:
   TweenTag: 
   IsComplete: 0
   LoopCount: 0
-  loopDuration: 0
+  loopDuration: 1
   LoopType: 0
   LoopEase: 24
   Delay: 0
