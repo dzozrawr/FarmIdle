@@ -6,11 +6,12 @@ using UnityEngine;
 public abstract class PlantController : MonoBehaviour
 {
     protected bool isGrowing = false;
-    protected float growingMaxTime = 1f;
-    protected float growingTime = 0f;
+    
+    protected float growingCurTime = 0f;
     protected float progress = 0f;
 
     public int coinWorth=0;
+    public float timeNeededToGrow = 1f;
 
     public delegate void Notify();
 
@@ -24,14 +25,14 @@ public abstract class PlantController : MonoBehaviour
     {
         if (isGrowing)
         {
-            progress = growingTime / growingMaxTime;
+            progress = growingCurTime / timeNeededToGrow;
 
             //visible effect of the progress
             GrowingEffect(progress);    //could be scaling, could be animation, could be anything
 
-            growingTime += Time.deltaTime;
+            growingCurTime += Time.deltaTime;
 
-            if (growingTime >= growingMaxTime)
+            if (growingCurTime >= timeNeededToGrow)
             {
                 progress = 1f;
 

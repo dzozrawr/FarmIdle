@@ -23,7 +23,7 @@ public class CylinderPlant : PlantController
 
     protected override void GrowingEffect(float progress)
     {
-        Debug.Log(progress);
+      //  Debug.Log(progress);
         curScale = startingScale + (goalScale - startingScale) * progress;
         plantModel.transform.localScale = new Vector3(curScale, curScale, curScale);
 

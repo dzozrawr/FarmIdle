@@ -1030,6 +1030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinWorth: 5
+  timeNeededToGrow: 2
   tweenForPlanting: {fileID: 7315124414585430894}
   models:
   - {fileID: 921075199250840376}
