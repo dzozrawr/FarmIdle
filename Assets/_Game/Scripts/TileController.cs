@@ -40,4 +40,16 @@ public class TileController : MonoBehaviour
         plant.PlantGrown-=OnPlantGrown;
     }
 
+    public void GoToNextState(){
+        state=state.NextState();
+    }
+
+    public void EnableHitboxAfterDelay(float delay){
+        Invoke(nameof(EnableHitbox),delay);
+    }
+
+    public void EnableHitbox(){
+        hitBoxCollider.enabled=true;
+    }
+
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class TileWithGrownPlantState : TileState
@@ -10,7 +11,10 @@ public class TileWithGrownPlantState : TileState
 
     public override TileState NextState()
     {
-        return null;
+        tileController.EnableHitboxAfterDelay(1f);
+
+        //Invoke(nameof(EnableHitboxColliderAfterDelay),0.75f);
+        return new TileStartingState(tileController);
     }
 
     public override void OnHit()
@@ -21,11 +25,12 @@ public class TileWithGrownPlantState : TileState
 
         MonoBehaviour.Destroy(tileController.Plant.gameObject);
 
-        
+        tileController.GoToNextState();
 
       //  tileController.Plant.Plant();
        // tileController.Plant.PlantGrown += tileController.OnPlantGrown;
     }
+
 
 
 }
