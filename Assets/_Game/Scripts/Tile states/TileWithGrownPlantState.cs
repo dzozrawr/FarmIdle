@@ -19,6 +19,15 @@ public class TileWithGrownPlantState : TileState
 
     public override void OnHit()
     {
+        if (gameController == null) gameController = GameController.Instance;
+
+        if ((gameController.CurTileAction != GameController.TileAction.None) && (gameController.CurTileAction != GameController.TileAction.Harvest)) return;
+
+        if (gameController.CurTileAction == GameController.TileAction.None)
+        {
+            gameController.SetTileAction(GameController.TileAction.Harvest);
+        }//else the action is Harvest and proceed with the code without worries
+
         tileController.hitBoxCollider.enabled=false;
 
         tileController.Plant.OnHarvest();

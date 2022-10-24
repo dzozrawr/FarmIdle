@@ -4,13 +4,27 @@ using UnityEngine;
 
 public class TileStartingState : TileState
 {
-    public TileStartingState(TileController tc):base(tc){
+    public TileStartingState(TileController tc) : base(tc)
+    {
     }
     public override void OnHit()
     {
-        if(!GameController.Instance.CurSelectedPlant) return;
+        if (gameController == null) gameController = GameController.Instance;
 
-        tileController.hitBoxCollider.enabled=false;
+        if (!gameController.CurSelectedPlant) return;
+
+        if ((gameController.CurTileAction != GameController.TileAction.None) && (gameController.CurTileAction != GameController.TileAction.Plant)) return;
+
+        if (gameController.CurTileAction == GameController.TileAction.None)
+        {
+            gameController.SetTileAction(GameController.TileAction.Plant);
+        }//else the action is plant and proceed with the code without worries
+
+        //Debug.Log("if (gameController.CurSelectedPlant) return;");
+
+
+
+        tileController.hitBoxCollider.enabled = false;
         if (tileController.Plant == null)
         {
             tileController.Plant = MonoBehaviour.Instantiate(GameController.Instance.CurSelectedPlant, tileController.placeForPlant.position, Quaternion.identity, tileController.transform);
@@ -20,8 +34,9 @@ public class TileStartingState : TileState
         tileController.Plant.PlantGrown += tileController.OnPlantGrown;
     }
 
-    public override TileState NextState(){
-        tileController.hitBoxCollider.enabled=true;
+    public override TileState NextState()
+    {
+        tileController.hitBoxCollider.enabled = true;
         return new TileWithGrownPlantState(tileController);
     }
 }

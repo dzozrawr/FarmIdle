@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public enum TileAction
+    {
+        None, Plant, Harvest
+    }
+
     private static GameController instance = null;
     public static GameController Instance { get => instance; }
     public static int CoinAmount { get => coinAmount; }
     public PlantController CurSelectedPlant { get => curSelectedPlant; set => curSelectedPlant = value; }
     public bool IsRaycastActive { get => isRaycastActive; set => isRaycastActive = value; }
+    
 
     private static int coinAmount;
 
@@ -22,11 +28,19 @@ public class GameController : MonoBehaviour
 
     private Camera mainCamera = null;
 
+    private PlantController curSelectedPlant = null;
+
+
     public delegate void GameControllerEvent();
 
     public GameControllerEvent CoinAmountChanged;
 
-    private PlantController curSelectedPlant = null;
+    private TileAction curTileAction=TileAction.None;
+    public TileAction CurTileAction { get => curTileAction; }
+
+    public delegate void TileActionChangeHandler(TileAction newTileAction);
+    public event TileActionChangeHandler OnTileActionChanged;
+
 
 
 
@@ -60,6 +74,10 @@ public class GameController : MonoBehaviour
                     }
                 }
             }
+            else //if mouse button is not held down
+            {
+                if(CurTileAction!=TileAction.None) SetTileAction(TileAction.None);
+            }
         }
     }
 
@@ -73,5 +91,13 @@ public class GameController : MonoBehaviour
     {
         coinAmount += coinAmountToAdd;
         CoinAmountChanged?.Invoke();
+    }
+
+    public void SetTileAction(TileAction newTileAction)
+    {
+        if (newTileAction == curTileAction) return;
+
+        curTileAction = newTileAction;
+        OnTileActionChanged?.Invoke(newTileAction);
     }
 }

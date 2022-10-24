@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class TileState
 {
     protected TileController tileController = null;
+    protected GameController gameController = null;
     public TileState(TileController tc)
     {
         tileController = tc;
