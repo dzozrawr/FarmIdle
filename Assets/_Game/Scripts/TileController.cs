@@ -32,6 +32,16 @@ public class TileController : MonoBehaviour
         plant.PlantGrown+=OnPlantGrown; */
     }
 
+    public void Lock()
+    {
+        state = new TileLockedState(this);
+    }
+
+    public void Unlock()
+    {
+        state = new TileStartingState(this);
+    }
+
     public void OnPlantGrown(){
      //   Debug.Log("Plant finished growing.");
 
