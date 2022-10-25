@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TileLocker : MonoBehaviour
 {
@@ -8,7 +9,18 @@ public class TileLocker : MonoBehaviour
 
     public Canvas lockedUI = null;
 
+    public int price = 0;
+
+    public TMP_Text priceText = null;
+
     private List<TileController> tileControllers = null;
+
+    private GameController gameController = null;
+
+    private void Awake()
+    {
+        priceText.text = price + "";
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +38,14 @@ public class TileLocker : MonoBehaviour
 
     public void Unlock()
     {
+        if (GameController.CoinAmount >= price)
+        {
+            if (gameController == null) gameController = GameController.Instance;
+            gameController.AddCoins(-price);
+        }else{
+            return;
+        }
+
         lockedUI.gameObject.SetActive(false);
 
         foreach (TileController tc in tileControllers)
