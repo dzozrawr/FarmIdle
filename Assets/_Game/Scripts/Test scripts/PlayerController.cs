@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject playerModel = null;
 
+    public float movementSpeed=1f;
+
     private Vector3 moveVector = Vector3.zero;
 
     //  private Vector3 prevMoveVector = Vector3.zero;
@@ -35,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
         moveVector.x = joystick.Horizontal;
         moveVector.z = joystick.Vertical;
-        moveVector *= Time.deltaTime;
+        moveVector *= movementSpeed*Time.deltaTime;
         characterController.Move(moveVector);
 
         if (moveVector != Vector3.zero) playerModel.transform.forward = moveVector.normalized;
@@ -45,6 +47,8 @@ public class PlayerController : MonoBehaviour
         //playerAnimator.
         // Debug.Log(moveVector.x);
         //Debug.Log
+
+       // Debug.Log(moveVector.magnitude);
 
         if ((prevJoystickMagnitude == 0f) && (joystick.Direction.magnitude > 0f))
         {

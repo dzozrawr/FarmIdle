@@ -1,81 +1,74 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
-    public float zoomOutMin = 1;
-    public float zoomOutMax = 8f;
+    private static CameraController instance = null;
+    public static CameraController Instance { get => instance; }
 
-    private Vector3 touchStart;
+    public enum CameraPhase
+    {
+        Intro, PlayerPicking, ContestantsStart, ContestantsElimination,  BeforeMiniGame
+    }
 
-    private Camera cam = null;
+    public Dictionary<CameraPhase, CinemachineVirtualCamera> camerasDictionary = new Dictionary<CameraPhase, CinemachineVirtualCamera>();
 
-    private GameController gameController=null;
+    [System.Serializable]
+    public class Container
+    {
+        public CameraPhase phase;
+        public CinemachineVirtualCamera cam;
+    }
+
+    /*    public CinemachineVirtualCamera introCam = null;
+        public CinemachineVirtualCamera playerPickingCam = null;
+        public CinemachineVirtualCamera contestantsCam = null;
+        public CinemachineVirtualCamera contestantsEliminationCam = null;*/
+
+    [NonReorderable]
+    public List<Container> camerasList;
+    private int highestCameraPriority = -1;
+
     private void Awake()
     {
-        cam = GetComponent<Camera>();
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+
+/*         int curCamPriority = highestCameraPriority;
+        foreach (var item in camerasList)
+        {
+            curCamPriority = item.cam.GetComponent<CinemachineVirtualCamera>().Priority;
+            if (curCamPriority > highestCameraPriority)
+            {
+                highestCameraPriority = curCamPriority;
+            }
+            camerasDictionary.Add(item.phase, item.cam.GetComponent<CinemachineVirtualCamera>());
+        } */
+
+       
+        //here should be a loop going through the cameras determining what is the highest priority number
     }
     // Start is called before the first frame update
     void Start()
     {
-        gameController=GameController.Instance;
+         highestCameraPriority=GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TransitionToCMVirtualCamera(CameraPhase phase)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            touchStart = cam.ScreenToWorldPoint(Input.mousePosition);
-        }
-
-
-
-        if (Input.touchCount == 2)
-        {
-            gameController.IsRaycastActive=false; //disable raycast to stop interacting with the world
-
-            Vector3 direction = touchStart - cam.ScreenToWorldPoint(Input.mousePosition);
-            cam.transform.position += direction;
-
-            Touch touchZero= Input.GetTouch(0);
-            Touch touchOne= Input.GetTouch(1);
-
-            Vector2 touchZeroPrevPos= touchZero.position - touchZero.deltaPosition;
-            Vector2 touchOnePrevPos= touchOne.position - touchOne.deltaPosition;
-            
-            float prevMagnitude= (touchZeroPrevPos -touchOnePrevPos).magnitude;
-            float curMagnitude= (touchZero.position -touchOne.position).magnitude;
-
-            float difference= curMagnitude-prevMagnitude;
-
-            Zoom(difference*0.01f);
-        }else{
-             gameController.IsRaycastActive=true; //disable raycast to stop interacting with the world
-        }
-
-
-        #if UNITY_EDITOR
-
-        if (Input.GetMouseButtonDown(2))
-        {
-            touchStart = cam.ScreenToWorldPoint(Input.mousePosition);
-        }
-
-        if (Input.GetMouseButton(2))
-        {
-            Vector3 direction = touchStart - cam.ScreenToWorldPoint(Input.mousePosition);
-            cam.transform.position += direction;
-        }
-
-         Zoom(Input.GetAxis("Mouse ScrollWheel"));
-#endif
-       
+        highestCameraPriority = camerasDictionary[phase].Priority = highestCameraPriority + 1;
+        Time.timeScale = 1;
     }
 
-    private void Zoom(float increment)
+    public void TransitionToCMVirtualCamera(CinemachineVirtualCamera cam)
     {
-        cam.orthographicSize = Mathf.Clamp(cam.orthographicSize - increment, zoomOutMin, zoomOutMax);
+        highestCameraPriority = cam.Priority = highestCameraPriority + 1;
+        //highestCameraPriority = cam.Priority = highestCameraPriority + 1;
     }
 }
