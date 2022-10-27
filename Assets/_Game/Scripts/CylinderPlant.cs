@@ -5,11 +5,6 @@ using Aezakmi.Tweens;
 
 public class CylinderPlant : PlantController
 {
-
-    private float startingScale, goalScale = 0.3f; //special case
-
-    private float curScale = -1f; //special case
-
     public TweenBase tweenForPlanting = null; //special case
 
     public GameObject plantModel = null; //special case
@@ -20,6 +15,12 @@ public class CylinderPlant : PlantController
 
 
     public CoinUIForPlant coinUIForPlant = null;
+
+    private float startingScale, goalScale = 0.3f; //special case
+
+    private float curScale = -1f; //special case
+
+
 
     protected override void GrowingEffect(float progress)
     {
@@ -51,6 +52,8 @@ public class CylinderPlant : PlantController
 
     public override void OnHarvest()
     {
-        coinUIForPlant.PlayCoinEarnAnimationAndDie(coinWorth);
+        if(gameController==null) gameController=GameController.Instance;
+        gameController.playerController.AddPlantToBackpack(new PlantInfo(type,coinWorth));
+        //coinUIForPlant.PlayCoinEarnAnimationAndDie(coinWorth);
     }
 }

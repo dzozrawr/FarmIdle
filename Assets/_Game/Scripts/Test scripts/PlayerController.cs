@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     public CinemachineVirtualCamera followingCamera=null;
 
+    public List<PlantInfo> backpackPlantsList=null;
+
     private Vector3 moveVector = Vector3.zero;
 
     //  private Vector3 prevMoveVector = Vector3.zero;
@@ -93,5 +95,27 @@ public class PlayerController : MonoBehaviour
         
        // joystick.
         //joystick.Vertical
+    }
+
+    public void AddPlantToBackpack(PlantInfo plant){
+        if(backpackPlantsList==null) backpackPlantsList=new List<PlantInfo>();
+
+        backpackPlantsList.Add(plant);
+    } 
+
+    public void SellBackpackContents(){
+        if(backpackPlantsList==null) return;
+        if(backpackPlantsList.Count==0) return;            
+
+        int combinedPrice=0;
+        foreach (PlantInfo p in backpackPlantsList)
+        {
+            combinedPrice+=p.Price;
+            //check for order completion            
+        }
+
+        GameController.Instance.AddCoins(combinedPrice);
+
+        backpackPlantsList=null;
     }
 }

@@ -74,7 +74,9 @@ public class MultiModelPlant : PlantController
 
     public override void OnHarvest()
     {
-        coinUIForPlant.PlayCoinEarnAnimationAndDie(coinWorth);
+        if (gameController == null) gameController = GameController.Instance;
+        gameController.playerController.AddPlantToBackpack(new PlantInfo(type, coinWorth));
+        //coinUIForPlant.PlayCoinEarnAnimationAndDie(coinWorth);
     }
 
 

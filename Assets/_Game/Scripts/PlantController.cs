@@ -5,17 +5,22 @@ using UnityEngine;
 
 public abstract class PlantController : MonoBehaviour
 {
-    protected bool isGrowing = false;
+    public PlantInfo.PlantType type;
+    public int coinWorth = 0;
     
-    protected float growingCurTime = 0f;
-    protected float progress = 0f;
-
-    public int coinWorth=0;
     public float timeNeededToGrow = 1f;
 
     public delegate void Notify();
 
     public event Notify PlantGrown;
+    protected bool isGrowing = false;
+
+    protected float growingCurTime = 0f;
+    protected float progress = 0f;
+
+    protected GameController gameController=null;
+
+
 
 
 
@@ -61,7 +66,8 @@ public abstract class PlantController : MonoBehaviour
 
     public abstract void GrowInitThings();
 
-    public virtual void OnHarvest(){
+    public virtual void OnHarvest()
+    {
 
     }
 }

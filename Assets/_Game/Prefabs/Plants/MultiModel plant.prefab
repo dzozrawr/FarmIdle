@@ -1029,6 +1029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee028d33e2dc004a8bab7caca3613b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   coinWorth: 5
   timeNeededToGrow: 2
   tweenForPlanting: {fileID: 7315124414585430894}
