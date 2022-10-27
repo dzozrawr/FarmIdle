@@ -30,6 +30,10 @@ public class GameController : MonoBehaviour
 
     private PlantController curSelectedPlant = null;
 
+    public PlayerController playerController=null;
+    public Canvas inventoryCanvas=null;
+
+    public InventoryCanvasController inventoryCanvasController=null;
 
     public delegate void GameControllerEvent();
 
@@ -100,4 +104,6 @@ public class GameController : MonoBehaviour
         curTileAction = newTileAction;
         OnTileActionChanged?.Invoke(newTileAction);
     }
+
+    //public void SetPlanting
 }

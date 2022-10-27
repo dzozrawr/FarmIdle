@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class PlayerController : MonoBehaviour
     public GameObject playerModel = null;
 
     public float movementSpeed=1f;
+
+    public Canvas joystickCanvas=null;
+
+    public CinemachineVirtualCamera followingCamera=null;
 
     private Vector3 moveVector = Vector3.zero;
 
@@ -78,5 +83,15 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(joystick.Direction.magnitude);
         //}
         prevJoystickMagnitude = joystick.Direction.magnitude;
+    }
+
+    public void SetJoystickEnabledAndVisible(bool isEnabled){
+        //joystickCanvas.gameObject.SetActive(isEnabled);
+        if(!isEnabled) joystick.OnPointerUp(null);
+        joystickCanvas.enabled=isEnabled;
+        joystick.enabled=isEnabled;
+        
+       // joystick.
+        //joystick.Vertical
     }
 }
