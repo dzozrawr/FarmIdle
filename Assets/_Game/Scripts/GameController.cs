@@ -39,6 +39,8 @@ public class GameController : MonoBehaviour
 
     public GameControllerEvent CoinAmountChanged;
 
+    public ShopTrigger market=null;
+
     private TileAction curTileAction=TileAction.None;
     public TileAction CurTileAction { get => curTileAction; }
 
@@ -58,6 +60,10 @@ public class GameController : MonoBehaviour
         instance = this;
 
         mainCamera = Camera.main;
+    }
+
+    private void Start() {
+        //playerController.guidingIndicator.SetTargetAndEnable();
     }
 
     // Update is called once per frame

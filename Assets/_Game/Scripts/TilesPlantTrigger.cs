@@ -64,6 +64,12 @@ public class TilesPlantTrigger : MonoBehaviour
     {
         gameController.playerController.SetJoystickEnabledAndVisible(true);
 
+        if(gameController.playerController.backpackPlantsList==null || gameController.playerController.backpackPlantsList.Count==0){
+            gameController.playerController.guidingIndicator.SetTargetAndEnable(transform);
+        }else{
+            gameController.playerController.guidingIndicator.SetTargetAndEnable(gameController.market.transform);
+        }
+
         CheckForCameraBlending.onCameraBlendFinished -= OnCameraTransitionToPlayerFinished;
     }
 

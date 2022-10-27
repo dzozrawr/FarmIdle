@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
 
     public List<PlantInfo> backpackPlantsList=null;
 
+    public GuidingIndicator guidingIndicator=null;
+
     private Vector3 moveVector = Vector3.zero;
 
     //  private Vector3 prevMoveVector = Vector3.zero;
