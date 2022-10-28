@@ -6,13 +6,12 @@ using Cinemachine;
 
 public class TilesPlantTrigger : MonoBehaviour
 {
-    public CinemachineVirtualCamera plantTopDownCamera = null;
-    public TilesManager tilesManager=null;
+
+    public TilesManager tilesManager = null;
     private CameraController cameraController = null;
     private GameController gameController = null;
 
     private Button checkmarkButton = null;
-
 
     private void Awake()
     {
@@ -27,7 +26,7 @@ public class TilesPlantTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        cameraController.TransitionToCMVirtualCamera(plantTopDownCamera);
+        cameraController.TransitionToCMVirtualCamera(tilesManager.plantCamera);
         CheckForCameraBlending.onCameraBlendFinished += OnCameraTransitionToPlantsFinished;
 
         gameController.playerController.SetJoystickEnabledAndVisible(false);
@@ -36,11 +35,11 @@ public class TilesPlantTrigger : MonoBehaviour
     private void OnCameraTransitionToPlantsFinished()
     {
         tilesManager.SetTilesInteractable(true);
-     //   Debug.Log("Activate tiles");    //to be implemented
+        //   Debug.Log("Activate tiles");    //to be implemented
         //gameController.playerController.SetJoystickCanvasEnabled(false);
         gameController.inventoryCanvas.enabled = true;
 
-        if(checkmarkButton==null) checkmarkButton = gameController.inventoryCanvasController.checkmarkButton;
+        if (checkmarkButton == null) checkmarkButton = gameController.inventoryCanvasController.checkmarkButton;
 
         checkmarkButton.onClick.AddListener(OnCheckmarkButtonClicked);
 
@@ -51,7 +50,7 @@ public class TilesPlantTrigger : MonoBehaviour
     private void OnCheckmarkButtonClicked()
     {
         tilesManager.SetTilesInteractable(false);
-       // Debug.Log("Deactivate tiles");    //to be implemented
+        // Debug.Log("Deactivate tiles");    //to be implemented
         gameController.inventoryCanvas.enabled = false;
         cameraController.TransitionToCMVirtualCamera(gameController.playerController.followingCamera);
         CheckForCameraBlending.onCameraBlendFinished += OnCameraTransitionToPlayerFinished;
@@ -64,9 +63,12 @@ public class TilesPlantTrigger : MonoBehaviour
     {
         gameController.playerController.SetJoystickEnabledAndVisible(true);
 
-        if(gameController.playerController.backpackPlantsList==null || gameController.playerController.backpackPlantsList.Count==0){
+        if (gameController.playerController.backpackPlantsList == null || gameController.playerController.backpackPlantsList.Count == 0)
+        {
             gameController.playerController.guidingIndicator.SetTargetAndEnable(transform);
-        }else{
+        }
+        else
+        {
             gameController.playerController.guidingIndicator.SetTargetAndEnable(gameController.market.transform);
         }
 

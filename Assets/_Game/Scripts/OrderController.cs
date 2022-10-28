@@ -42,6 +42,7 @@ public class OrderController : MonoBehaviour
 
     public void OnPlantHarvested(PlantInfo.PlantType plantType)
     {
+        if(curOrder==null) return;
         if (plantsHarvestedN == curOrder.quantity)
         {
             return;

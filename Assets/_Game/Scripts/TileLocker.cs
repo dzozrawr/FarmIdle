@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Cinemachine;
 
 public class TileLocker : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class TileLocker : MonoBehaviour
     public int price = 0;
 
     public TMP_Text priceText = null;
+
+    public CinemachineVirtualCamera newCameraView=null;
+
+    public TilesManager tilesManager=null;
 
     private List<TileController> tileControllers = null;
 
@@ -33,6 +38,8 @@ public class TileLocker : MonoBehaviour
                 tileControllers.Add(tc);
                 tc.Lock();
             }
+        }else{
+            lockedUI.gameObject.SetActive(false);
         }
     }
 
@@ -51,6 +58,10 @@ public class TileLocker : MonoBehaviour
         foreach (TileController tc in tileControllers)
         {
             tc.Unlock();
+        }
+
+        if(newCameraView!=null){
+            tilesManager.plantCamera=newCameraView;
         }
     }
 }

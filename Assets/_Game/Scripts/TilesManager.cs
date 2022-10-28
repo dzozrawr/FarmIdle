@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class TilesManager : MonoBehaviour
 {
 
     public Transform circleForPlantingOrHarvesting=null;
+    public CinemachineVirtualCamera plantCamera=null;
     private List<TileController> tileControllers = null;
 
     private GameController gameController = null;
