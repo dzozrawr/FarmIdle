@@ -50,7 +50,7 @@ public class CylinderPlant : PlantController
         tweenForPlanting.RemoveDelegateOnComplete(Grow);
     }
 
-    public override void OnHarvest()
+    public override void OnHarvestSpecific()
     {
         if(gameController==null) gameController=GameController.Instance;
         gameController.playerController.AddPlantToBackpack(new PlantInfo(type,coinWorth));

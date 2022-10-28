@@ -72,7 +72,7 @@ public class MultiModelPlant : PlantController
         progressCircle.SetProgress(progress);
     }
 
-    public override void OnHarvest()
+    public override void OnHarvestSpecific()
     {
         if (gameController == null) gameController = GameController.Instance;
         gameController.playerController.AddPlantToBackpack(new PlantInfo(type, coinWorth));

@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator playerAnimator = null;
 
+    private GameController gameController=null;
+
     private void Awake()
     {
         playerAnimator = playerModel.GetComponent<Animator>();
@@ -115,9 +117,11 @@ public class PlayerController : MonoBehaviour
             combinedPrice+=p.Price;
             //check for order completion            
         }
-
-        GameController.Instance.AddCoins(combinedPrice);
+        if(gameController==null) gameController=GameController.Instance;
+        gameController.AddCoins(combinedPrice);
 
         backpackPlantsList=null;
+
+        guidingIndicator.SetTargetAndEnable(gameController.GetClosestPlantTriggerCircle(transform));    //set the target to the closest plant circle when backpack empty
     }
 }

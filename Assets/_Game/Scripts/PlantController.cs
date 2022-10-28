@@ -5,6 +5,9 @@ using UnityEngine;
 
 public abstract class PlantController : MonoBehaviour
 {
+
+    public delegate void PlantHarvestedHandler(PlantInfo.PlantType plantType);
+    public static event PlantHarvestedHandler PlantHarvested;
     public PlantInfo.PlantType type;
     public int coinWorth = 0;
     
@@ -66,8 +69,10 @@ public abstract class PlantController : MonoBehaviour
 
     public abstract void GrowInitThings();
 
-    public virtual void OnHarvest()
+    public abstract void OnHarvestSpecific();
+    public void OnHarvest()
     {
-
+        OnHarvestSpecific();
+        PlantHarvested?.Invoke(type);
     }
 }

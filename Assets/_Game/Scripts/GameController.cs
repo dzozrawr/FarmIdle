@@ -10,13 +10,30 @@ public class GameController : MonoBehaviour
     }
 
     private static GameController instance = null;
+    private static int coinAmount;
     public static GameController Instance { get => instance; }
     public static int CoinAmount { get => coinAmount; }
-    public PlantController CurSelectedPlant { get => curSelectedPlant; set => curSelectedPlant = value; }
-    public bool IsRaycastActive { get => isRaycastActive; set => isRaycastActive = value; }
-    
 
-    private static int coinAmount;
+
+    public delegate void TileActionChangeHandler(TileAction newTileAction);
+    public event TileActionChangeHandler OnTileActionChanged;
+
+
+
+    public PlayerController playerController = null;
+    public Canvas inventoryCanvas = null;
+
+    public InventoryCanvasController inventoryCanvasController = null;
+
+    public delegate void GameControllerEvent();
+
+    public GameControllerEvent CoinAmountChanged;
+
+    public ShopTrigger market = null;
+
+    public List<Transform> plantTriggerCircles = null;
+
+
 
     #region Raycast variables
     private Ray ray;
@@ -30,25 +47,10 @@ public class GameController : MonoBehaviour
 
     private PlantController curSelectedPlant = null;
 
-    public PlayerController playerController=null;
-    public Canvas inventoryCanvas=null;
-
-    public InventoryCanvasController inventoryCanvasController=null;
-
-    public delegate void GameControllerEvent();
-
-    public GameControllerEvent CoinAmountChanged;
-
-    public ShopTrigger market=null;
-
-    private TileAction curTileAction=TileAction.None;
+    private TileAction curTileAction = TileAction.None;
     public TileAction CurTileAction { get => curTileAction; }
-
-    public delegate void TileActionChangeHandler(TileAction newTileAction);
-    public event TileActionChangeHandler OnTileActionChanged;
-
-
-
+    public PlantController CurSelectedPlant { get => curSelectedPlant; set => curSelectedPlant = value; }
+    public bool IsRaycastActive { get => isRaycastActive; set => isRaycastActive = value; }
 
     private void Awake()
     {
@@ -62,7 +64,8 @@ public class GameController : MonoBehaviour
         mainCamera = Camera.main;
     }
 
-    private void Start() {
+    private void Start()
+    {
         //playerController.guidingIndicator.SetTargetAndEnable();
     }
 
@@ -86,7 +89,7 @@ public class GameController : MonoBehaviour
             }
             else //if mouse button is not held down
             {
-                if(CurTileAction!=TileAction.None) SetTileAction(TileAction.None);
+                if (CurTileAction != TileAction.None) SetTileAction(TileAction.None);
             }
         }
     }
@@ -109,6 +112,25 @@ public class GameController : MonoBehaviour
 
         curTileAction = newTileAction;
         OnTileActionChanged?.Invoke(newTileAction);
+    }
+
+    public Transform GetClosestPlantTriggerCircle(Transform from)
+    {
+        float minDistance = float.MaxValue;
+        Transform closestCircle = null;
+
+        float distance = 0f;
+        foreach (Transform t in plantTriggerCircles)
+        {
+            distance = Vector3.Distance(from.position, t.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestCircle=t;
+            }
+        }
+
+        return closestCircle;
     }
 
     //public void SetPlanting
