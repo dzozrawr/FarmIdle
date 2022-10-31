@@ -11,7 +11,7 @@ public class ShopTrigger : MonoBehaviour
     {
         player = GameController.Instance.playerController;
     }
-    private void OnCollisionEnter(Collision other)
+/*     private void OnCollisionEnter(Collision other)
     {
         Debug.Log("OnCollisionEnter");
         if (other.gameObject == player.gameObject)
@@ -19,7 +19,7 @@ public class ShopTrigger : MonoBehaviour
             Debug.Log("player.SellBackpackContents();");
             player.SellBackpackContents();
         }
-    }
+    } */
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,7 +27,7 @@ public class ShopTrigger : MonoBehaviour
         if (other.gameObject == player.gameObject)
         {
          //   Debug.Log("player.SellBackpackContents();");
-            player.SellBackpackContents();
+            player.SellBackpackContents(transform);
         }
     }
 
@@ -36,10 +36,6 @@ public class ShopTrigger : MonoBehaviour
             wasCCHit=true;
         } */
 
-    //OnControlle
 
-    private void OnCollisionStay(Collision other)
-    {
-        Debug.Log("OnCollisionStay");
-    }
+
 }

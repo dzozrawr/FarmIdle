@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &110003586907075934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6787544414089224112}
+  m_Layer: 0
+  m_Name: PlaceForBackpack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6787544414089224112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110003586907075934}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.209, z: 0.069}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3559074645986185875}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &483975067755915144
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +210,7 @@ Transform:
   - {fileID: 3559074646733222834}
   - {fileID: 8446028234348352783}
   - {fileID: 6519563041294723347}
+  - {fileID: 6787544414089224112}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -202,6 +233,7 @@ MonoBehaviour:
   joystickCanvas: {fileID: 0}
   followingCamera: {fileID: 2462478721915816051}
   guidingIndicator: {fileID: 6504918761864265318}
+  placeForBackpack: {fileID: 6787544414089224112}
 --- !u!143 &3559074645986185873
 CharacterController:
   m_ObjectHideFlags: 0

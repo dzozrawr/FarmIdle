@@ -75,4 +75,6 @@ public abstract class PlantController : MonoBehaviour
         OnHarvestSpecific();
         PlantHarvested?.Invoke(type);
     }
+
+    public abstract GameObject GetGrownPlantModel();
 }

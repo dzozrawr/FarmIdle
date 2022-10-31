@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     public GuidingIndicator guidingIndicator=null;
 
+    public Transform placeForBackpack=null;
+
     private Vector3 moveVector = Vector3.zero;
 
     //  private Vector3 prevMoveVector = Vector3.zero;
@@ -28,6 +31,10 @@ public class PlayerController : MonoBehaviour
     private Animator playerAnimator = null;
 
     private GameController gameController=null;
+
+    private HashSet<PlantInfo.PlantType> addedPlantsSet=new HashSet<PlantInfo.PlantType>();
+
+    private Dictionary<PlantInfo.PlantType,GameObject> addedPlantsUniqueModels=new Dictionary<PlantInfo.PlantType, GameObject>();
 
     private void Awake()
     {
@@ -101,16 +108,27 @@ public class PlayerController : MonoBehaviour
         //joystick.Vertical
     }
 
-    public void AddPlantToBackpack(PlantInfo plant){
+    public void AddPlantToBackpack(PlantInfo plant, GameObject plantModel){
         if(backpackPlantsList==null) backpackPlantsList=new List<PlantInfo>();
-
+        
         backpackPlantsList.Add(plant);
+
+        if(!addedPlantsSet.Contains(plant.Type)){
+            addedPlantsSet.Add(plant.Type);
+
+            GameObject plantModelCopy=Instantiate(plantModel);  //the plant model will be destroyed so we make a copy here
+            plantModelCopy.SetActive(false);
+
+            addedPlantsUniqueModels.Add(plant.Type,plantModelCopy); //adding one model for each plant type (to do the selling in the market effect)
+            
+        }
     } 
 
-    public void SellBackpackContents(){
+    public void SellBackpackContents(Transform marketTransform){
         if(backpackPlantsList==null) return;
         if(backpackPlantsList.Count==0) return;            
 
+        SellBackpackContentsVisualEffect(marketTransform);
         int combinedPrice=0;
         foreach (PlantInfo p in backpackPlantsList)
         {
@@ -121,7 +139,42 @@ public class PlayerController : MonoBehaviour
         gameController.AddCoins(combinedPrice);
 
         backpackPlantsList=null;
+        /* addedPlantsSet.Clear();
+        addedPlantsUniqueModels.Clear(); */
 
         guidingIndicator.SetTargetAndEnable(gameController.GetClosestPlantTriggerCircle(transform));    //set the target to the closest plant circle when backpack empty
+    }
+
+    private void SellBackpackContentsVisualEffect(Transform marketTransform){
+        //scale in and out the backpack
+        StartCoroutine(SellingVisualEffectCoroutine(marketTransform));
+        
+    }
+
+    IEnumerator SellingVisualEffectCoroutine(Transform marketTransform){
+        Tweener curTweener=null;
+        Vector3 marketOriginalScale=marketTransform.localScale;
+
+        foreach (var item in addedPlantsUniqueModels)
+        {
+            item.Value.transform.position=placeForBackpack.position;
+            item.Value.SetActive(true);
+            item.Value.transform.DOMove(marketTransform.position,0.33f).OnComplete(()=>{
+                Destroy(item.Value);
+                if(curTweener==null){
+                    marketOriginalScale=marketTransform.localScale;
+                    curTweener=marketTransform.DOPunchScale(marketTransform.localScale*0.1f,0.33f,1,0.1f);
+                }else{
+                    curTweener.Kill();
+                    marketTransform.localScale=marketOriginalScale;
+                    curTweener=marketTransform.DOPunchScale(marketTransform.localScale*0.1f,0.33f,1,0.1f);
+                }
+                
+                //scale in and out the market
+            });
+            yield return new WaitForSeconds(0.15f);
+        }
+        addedPlantsSet.Clear();
+        addedPlantsUniqueModels.Clear();
     }
 }

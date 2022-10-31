@@ -30299,6 +30299,8 @@ MonoBehaviour:
   plantTriggerCircles:
   - {fileID: 1002207935}
   - {fileID: 381519965}
+  coinsToCompleteLevel: 200
+  progressBar: {fileID: 6975257154463955666}
 --- !u!1 &1344054314
 GameObject:
   m_ObjectHideFlags: 0
@@ -48489,6 +48491,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 994078700951459112, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 994078700951459112, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 994078700951459112, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678856937381928173, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200827336799718734, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10.726601
+      objectReference: {fileID: 0}
+    - target: {fileID: 3380428792717559762, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6975257154083285175, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
       propertyPath: m_Name
       value: GameCanvas
@@ -48581,8 +48607,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6975257154679574597, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -127.39569
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975257154679574597, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -63.697754
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495029057135197581, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 56.838715
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+--- !u!114 &6975257154463955666 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2131927259125766690, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+  m_PrefabInstance: {fileID: 6975257154463955665}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67705fc2e31b2524b8e7ff79a934246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7109411658927529560
 GameObject:
   m_ObjectHideFlags: 0

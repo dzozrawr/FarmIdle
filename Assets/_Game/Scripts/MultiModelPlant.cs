@@ -75,10 +75,13 @@ public class MultiModelPlant : PlantController
     public override void OnHarvestSpecific()
     {
         if (gameController == null) gameController = GameController.Instance;
-        gameController.playerController.AddPlantToBackpack(new PlantInfo(type, coinWorth));
+        gameController.playerController.AddPlantToBackpack(new PlantInfo(type, coinWorth),GetGrownPlantModel());
         //coinUIForPlant.PlayCoinEarnAnimationAndDie(coinWorth);
     }
 
-
+    public override GameObject GetGrownPlantModel()
+    {
+        return models[models.Length - 1];
+    }
 
 }

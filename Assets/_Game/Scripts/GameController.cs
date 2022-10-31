@@ -33,6 +33,10 @@ public class GameController : MonoBehaviour
 
     public List<Transform> plantTriggerCircles = null;
 
+    public int coinsToCompleteLevel=200;
+
+    public ProgressBar progressBar=null;
+
 
 
     #region Raycast variables
@@ -67,6 +71,18 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         //playerController.guidingIndicator.SetTargetAndEnable();
+        progressBar.SetMaxProgress(coinsToCompleteLevel);
+        CoinAmountChanged+=UpdateProgressOnCoinAmountChanged;
+    }
+
+    private void UpdateProgressOnCoinAmountChanged(){
+        if(coinAmount>=coinsToCompleteLevel){
+            progressBar.SetProgress(coinsToCompleteLevel);
+            Debug.Log("Activate button to go to next level");
+        }else{
+            progressBar.SetProgress(coinAmount);
+        }
+        
     }
 
     // Update is called once per frame

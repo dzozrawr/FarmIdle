@@ -24,7 +24,7 @@ public class CylinderPlant : PlantController
 
     protected override void GrowingEffect(float progress)
     {
-      //  Debug.Log(progress);
+        //  Debug.Log(progress);
         curScale = startingScale + (goalScale - startingScale) * progress;
         plantModel.transform.localScale = new Vector3(curScale, curScale, curScale);
 
@@ -52,8 +52,13 @@ public class CylinderPlant : PlantController
 
     public override void OnHarvestSpecific()
     {
-        if(gameController==null) gameController=GameController.Instance;
-        gameController.playerController.AddPlantToBackpack(new PlantInfo(type,coinWorth));
+        if (gameController == null) gameController = GameController.Instance;
+        gameController.playerController.AddPlantToBackpack(new PlantInfo(type, coinWorth),GetGrownPlantModel());
         //coinUIForPlant.PlayCoinEarnAnimationAndDie(coinWorth);
+    }
+
+    public override GameObject GetGrownPlantModel()
+    {
+        return plantModel;
     }
 }
