@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8622250462810411058}
   - component: {fileID: 8622250462810411020}
   - component: {fileID: 8622250462810411059}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8622250463102412237}
   - component: {fileID: 8622250463102412239}
   - component: {fileID: 8622250463102412238}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 8622250463347612496}
   - component: {fileID: 8622250463347612498}
   - component: {fileID: 8622250463347612497}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TextCoinParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 8622250463851545935}
   - component: {fileID: 8622250463851545934}
   - component: {fileID: 8622250463851545933}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 8622250464030509325}
   - component: {fileID: 8622250464030509327}
   - component: {fileID: 8622250464030509326}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   - component: {fileID: 8622250464455995023}
   - component: {fileID: 8622250464455995017}
   - component: {fileID: 8622250464455995016}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 8622250464939618756}
   - component: {fileID: 8622250464939618763}
   - component: {fileID: 8622250464939618762}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LockedUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1, y: 0.05999982}
+  m_AnchoredPosition: {x: 1, y: 0.060058594}
   m_SizeDelta: {x: 8.0054, y: 8.0054}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8622250464939618756
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8622250464939618762
 MonoBehaviour:
   m_ObjectHideFlags: 0

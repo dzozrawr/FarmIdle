@@ -72,6 +72,17 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+#if UNITY_EDITOR
+
+    if(Input.GetKeyDown(KeyCode.E)){
+        AddCoins(20);
+    }
+
+#endif
+
+
         if (isRaycastActive)
         {
             if (Input.GetMouseButton(0))
@@ -126,7 +137,7 @@ public class GameController : MonoBehaviour
             if (distance < minDistance)
             {
                 minDistance = distance;
-                closestCircle=t;
+                closestCircle = t;
             }
         }
 
