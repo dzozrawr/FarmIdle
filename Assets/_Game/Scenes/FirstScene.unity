@@ -34292,7 +34292,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &1527532380
 RectTransform:
@@ -43669,6 +43669,7 @@ GameObject:
   - component: {fileID: 1944715560}
   - component: {fileID: 1944715565}
   - component: {fileID: 1944715564}
+  - component: {fileID: 1944715566}
   m_Layer: 0
   m_Name: Market
   m_TagString: Untagged
@@ -43781,6 +43782,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1944715566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944715559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df1149ae2ce7df4893448b1d27ebe50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TweenTag: 
+  IsComplete: 0
+  LoopCount: 0
+  loopDuration: 0
+  LoopType: 0
+  LoopEase: 0
+  Delay: 0
+  _playOnAwake: 0
+  _eventsOnPlayTween:
+    m_PersistentCalls:
+      m_Calls: []
+  _eventsOnComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _scaleType: 0
+  _scale: {x: 0, y: 0, z: 0}
+  _amount: {x: 0, y: 0, z: 0}
 --- !u!1001 &1953237647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48609,7 +48639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6975257154679574597, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -127.39569
+      value: -127.39563
       objectReference: {fileID: 0}
     - target: {fileID: 6975257154679574597, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
       propertyPath: m_AnchoredPosition.y
