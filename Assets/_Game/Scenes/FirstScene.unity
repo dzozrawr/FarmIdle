@@ -8632,6 +8632,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 990228521}
     m_Modifications:
+    - target: {fileID: 8622250462810411057, guid: 009157f3d5f8bcf47a02f4e86b1381df, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622250463102412236, guid: 009157f3d5f8bcf47a02f4e86b1381df, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8622250463102412237, guid: 009157f3d5f8bcf47a02f4e86b1381df, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -8664,6 +8672,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8622250463347612503, guid: 009157f3d5f8bcf47a02f4e86b1381df, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8622250463851545933, guid: 009157f3d5f8bcf47a02f4e86b1381df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8671,6 +8683,18 @@ PrefabInstance:
     - target: {fileID: 8622250463851545933, guid: 009157f3d5f8bcf47a02f4e86b1381df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Unlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622250463851545971, guid: 009157f3d5f8bcf47a02f4e86b1381df, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622250464030509324, guid: 009157f3d5f8bcf47a02f4e86b1381df, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622250464455995022, guid: 009157f3d5f8bcf47a02f4e86b1381df, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8622250464939618756, guid: 009157f3d5f8bcf47a02f4e86b1381df, type: 3}
       propertyPath: m_Camera
@@ -10331,7 +10355,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &5874693730454400226
 RectTransform:
@@ -10548,10 +10572,6 @@ PrefabInstance:
     - target: {fileID: 6975257154679574597, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -63.697754
-      objectReference: {fileID: 0}
-    - target: {fileID: 8495029057135197581, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 56.838715
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
