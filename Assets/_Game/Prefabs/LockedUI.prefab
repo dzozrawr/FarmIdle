@@ -583,6 +583,7 @@ GameObject:
   - component: {fileID: 8622250464939618756}
   - component: {fileID: 8622250464939618763}
   - component: {fileID: 8622250464939618762}
+  - component: {fileID: 8226540230044503138}
   m_Layer: 5
   m_Name: LockedUI
   m_TagString: Untagged
@@ -631,7 +632,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &8622250464939618763
 MonoBehaviour:
@@ -673,3 +674,16 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8226540230044503138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8622250464939618760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00e218c2cd463a2459cc69dc0a03e9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 8622250464939618756}

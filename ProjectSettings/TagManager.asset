@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TileHitBox
   - CameraUI
+  - UIRayBlock
   layers:
   - Default
   - TransparentFX

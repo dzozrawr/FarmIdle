@@ -33,9 +33,11 @@ public class GameController : MonoBehaviour
 
     public List<Transform> plantTriggerCircles = null;
 
-    public int coinsToCompleteLevel=200;
+    public int coinsToCompleteLevel = 200;
 
-    public ProgressBar progressBar=null;
+    public ProgressBar progressBar = null;
+
+    public EOLCanvasController EOLCanvasController=null;
 
 
 
@@ -72,17 +74,22 @@ public class GameController : MonoBehaviour
     {
         //playerController.guidingIndicator.SetTargetAndEnable();
         progressBar.SetMaxProgress(coinsToCompleteLevel);
-        CoinAmountChanged+=UpdateProgressOnCoinAmountChanged;
+        CoinAmountChanged += UpdateProgressOnCoinAmountChanged;
     }
 
-    private void UpdateProgressOnCoinAmountChanged(){
-        if(coinAmount>=coinsToCompleteLevel){
+    private void UpdateProgressOnCoinAmountChanged()
+    {
+        if (coinAmount >= coinsToCompleteLevel)
+        {
             progressBar.SetProgress(coinsToCompleteLevel);
-            Debug.Log("Activate button to go to next level");
-        }else{
+            EOLCanvasController.GetComponent<Canvas>().enabled=true;
+          //  Debug.Log("Activate button to go to next level");
+        }
+        else
+        {
             progressBar.SetProgress(coinAmount);
         }
-        
+
     }
 
     // Update is called once per frame
@@ -92,15 +99,17 @@ public class GameController : MonoBehaviour
 
 #if UNITY_EDITOR
 
-    if(Input.GetKeyDown(KeyCode.E)){
-        AddCoins(20);
-    }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            AddCoins(20);
+        }
 
 #endif
 
 
         if (isRaycastActive)
         {
+            
             if (Input.GetMouseButton(0))
             {
                 ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -109,6 +118,7 @@ public class GameController : MonoBehaviour
                     hitObject = hit.collider.gameObject;
                     if (hitObject.CompareTag("TileHitBox"))         //hitObject is a reference to HitBox here
                     {
+                        if(IsOverRaycastBlockingUI()) return;   //this condition is here, because it is checking on a lot of things and would cause poorer performance if put higher in the update loop
                         TileHitBox tileHitBox = hitObject.GetComponent<TileHitBox>();
                         tileHitBox.OnHit();
                     }
@@ -158,6 +168,21 @@ public class GameController : MonoBehaviour
         }
 
         return closestCircle;
+    }
+
+    public static bool IsOverRaycastBlockingUI()
+    {
+        int id = 0;
+#if UNITY_EDITOR
+        id = -1;
+#endif
+        //  bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(id);       //this checks if the pointer is over UI (through EventSystem) and if it is then it blocks raycasts
+        bool isOverBlockingUI =
+                                UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(id) &&
+                                UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject != null &&
+                                UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.CompareTag("UIRayBlock");       //this checks if the pointer is over UI (through EventSystem) and if it is then it blocks raycasts
+
+        return isOverBlockingUI;
     }
 
     //public void SetPlanting

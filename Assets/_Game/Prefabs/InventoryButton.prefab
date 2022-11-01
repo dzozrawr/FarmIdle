@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 442603193980248786}
   m_Layer: 5
   m_Name: InventoryButton
-  m_TagString: Untagged
+  m_TagString: UIRayBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
