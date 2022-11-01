@@ -30,6 +30,7 @@ public class TileWithGrownPlantState : TileState
 
         tileController.hitBoxCollider.enabled=false;
 
+        SoundManager.Instance.PlaySoundWPitchChange("harvestingSound");
         tileController.Plant.OnHarvest();
 
         MonoBehaviour.Destroy(tileController.Plant.gameObject);

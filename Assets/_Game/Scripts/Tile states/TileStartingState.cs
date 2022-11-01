@@ -31,6 +31,7 @@ public class TileStartingState : TileState
         }
 
         tileController.Plant.Plant();
+        SoundManager.Instance.PlaySoundWPitchChange("plantingSound");
         tileController.Plant.PlantGrown += tileController.OnPlantGrown;
     }
 

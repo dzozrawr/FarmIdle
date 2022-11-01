@@ -193,6 +193,7 @@ public class PlayerController : MonoBehaviour
             item.Value.transform.DOMove(marketTransform.position, 0.33f).OnComplete(() =>
             {
                 Destroy(item.Value);
+                SoundManager.Instance.PlaySoundWPitchChange("sellingSound");
                 if (curTweener == null)
                 {
                     marketOriginalScale = marketTransform.localScale;
