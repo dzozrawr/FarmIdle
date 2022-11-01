@@ -48,7 +48,8 @@ public class PlayerController : MonoBehaviour
     {
         // playerAnimator.SetTrigger("Walk");
         //playerAnimator.SetFloat("speed", 0f);
-        //joystick.Horizontal
+      //  joystick.OnPointerDown(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.));
+        //joystick.OnPointerUp(null);
     }
 
     // Update is called once per frame
