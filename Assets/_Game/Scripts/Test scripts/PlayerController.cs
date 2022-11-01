@@ -11,17 +11,20 @@ public class PlayerController : MonoBehaviour
 
     public GameObject playerModel = null;
 
-    public float movementSpeed=1f;
+    public float movementSpeed = 1f;
 
-    public Canvas joystickCanvas=null;
+    public Canvas joystickCanvas = null;
 
-    public CinemachineVirtualCamera followingCamera=null;
+    public CinemachineVirtualCamera followingCamera = null;
 
-    public List<PlantInfo> backpackPlantsList=null;
+    public List<PlantInfo> backpackPlantsList = null;
 
-    public GuidingIndicator guidingIndicator=null;
+    public GuidingIndicator guidingIndicator = null;
 
-    public Transform placeForBackpack=null;
+    public Transform placeForBackpack = null;
+
+    public GameObject backpackModel = null;
+    public GameObject backpackFullModel = null;
 
     private Vector3 moveVector = Vector3.zero;
 
@@ -30,11 +33,11 @@ public class PlayerController : MonoBehaviour
 
     private Animator playerAnimator = null;
 
-    private GameController gameController=null;
+    private GameController gameController = null;
 
-    private HashSet<PlantInfo.PlantType> addedPlantsSet=new HashSet<PlantInfo.PlantType>();
+    private HashSet<PlantInfo.PlantType> addedPlantsSet = new HashSet<PlantInfo.PlantType>();
 
-    private Dictionary<PlantInfo.PlantType,GameObject> addedPlantsUniqueModels=new Dictionary<PlantInfo.PlantType, GameObject>();
+    private Dictionary<PlantInfo.PlantType, GameObject> addedPlantsUniqueModels = new Dictionary<PlantInfo.PlantType, GameObject>();
 
     private void Awake()
     {
@@ -43,7 +46,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // playerAnimator.SetTrigger("Walk");
+        // playerAnimator.SetTrigger("Walk");
         //playerAnimator.SetFloat("speed", 0f);
         //joystick.Horizontal
     }
@@ -55,7 +58,7 @@ public class PlayerController : MonoBehaviour
 
         moveVector.x = joystick.Horizontal;
         moveVector.z = joystick.Vertical;
-        moveVector *= movementSpeed*Time.deltaTime;
+        moveVector *= movementSpeed * Time.deltaTime;
         characterController.Move(moveVector);
 
         if (moveVector != Vector3.zero) playerModel.transform.forward = moveVector.normalized;
@@ -66,7 +69,7 @@ public class PlayerController : MonoBehaviour
         // Debug.Log(moveVector.x);
         //Debug.Log
 
-       // Debug.Log(moveVector.magnitude);
+        // Debug.Log(moveVector.magnitude);
 
         if ((prevJoystickMagnitude == 0f) && (joystick.Direction.magnitude > 0f))
         {
@@ -78,15 +81,15 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetTrigger("Idle");
         }
 
-/*         if ((prevMoveVector == Vector3.zero) && (moveVector != Vector3.zero))
-        {
-            playerAnimator.SetTrigger("Walk");
-        }
+        /*         if ((prevMoveVector == Vector3.zero) && (moveVector != Vector3.zero))
+                {
+                    playerAnimator.SetTrigger("Walk");
+                }
 
-        if ((prevMoveVector != Vector3.zero) && (moveVector == Vector3.zero))
-        {
-            playerAnimator.SetTrigger("Idle");
-        } */
+                if ((prevMoveVector != Vector3.zero) && (moveVector == Vector3.zero))
+                {
+                    playerAnimator.SetTrigger("Idle");
+                } */
 
         /*         if (playerAnimator.GetBool("isWalking") != (joystick.Direction.magnitude > 0))
                 {
@@ -98,83 +101,127 @@ public class PlayerController : MonoBehaviour
         prevJoystickMagnitude = joystick.Direction.magnitude;
     }
 
-    public void SetJoystickEnabledAndVisible(bool isEnabled){
+    public void SetJoystickEnabledAndVisible(bool isEnabled)
+    {
         //joystickCanvas.gameObject.SetActive(isEnabled);
-        if(!isEnabled) joystick.OnPointerUp(null);
-        joystickCanvas.enabled=isEnabled;
-        joystick.enabled=isEnabled;
-        
-       // joystick.
+        if (!isEnabled) joystick.OnPointerUp(null);
+        joystickCanvas.enabled = isEnabled;
+        joystick.enabled = isEnabled;
+
+        // joystick.
         //joystick.Vertical
     }
 
-    public void AddPlantToBackpack(PlantInfo plant, GameObject plantModel){
-        if(backpackPlantsList==null) backpackPlantsList=new List<PlantInfo>();
-        
+    public void AddPlantToBackpack(PlantInfo plant, GameObject plantModel)
+    {
+        if (backpackPlantsList == null)
+        {
+            backpackPlantsList = new List<PlantInfo>();
+            SetBackpackFull(true);
+        }
+
         backpackPlantsList.Add(plant);
 
-        if(!addedPlantsSet.Contains(plant.Type)){
+
+
+        if (!addedPlantsSet.Contains(plant.Type))
+        {
             addedPlantsSet.Add(plant.Type);
 
-            GameObject plantModelCopy=Instantiate(plantModel);  //the plant model will be destroyed so we make a copy here
+            GameObject plantModelCopy = Instantiate(plantModel);  //the plant model will be destroyed so we make a copy here
             plantModelCopy.SetActive(false);
 
-            addedPlantsUniqueModels.Add(plant.Type,plantModelCopy); //adding one model for each plant type (to do the selling in the market effect)
-            
-        }
-    } 
+            addedPlantsUniqueModels.Add(plant.Type, plantModelCopy); //adding one model for each plant type (to do the selling in the market effect)
 
-    public void SellBackpackContents(Transform marketTransform){
-        if(backpackPlantsList==null) return;
-        if(backpackPlantsList.Count==0) return;            
+        }
+    }
+
+    public void SellBackpackContents(Transform marketTransform)
+    {
+        if (backpackPlantsList == null) return;
+        if (backpackPlantsList.Count == 0) return;
 
         SellBackpackContentsVisualEffect(marketTransform);
-        int combinedPrice=0;
+        int combinedPrice = 0;
         foreach (PlantInfo p in backpackPlantsList)
         {
-            combinedPrice+=p.Price;
+            combinedPrice += p.Price;
             //check for order completion            
         }
-        if(gameController==null) gameController=GameController.Instance;
+        if (gameController == null) gameController = GameController.Instance;
         gameController.AddCoins(combinedPrice);
 
-        backpackPlantsList=null;
+        backpackPlantsList = null;
         /* addedPlantsSet.Clear();
         addedPlantsUniqueModels.Clear(); */
 
         guidingIndicator.SetTargetAndEnable(gameController.GetClosestPlantTriggerCircle(transform));    //set the target to the closest plant circle when backpack empty
     }
 
-    private void SellBackpackContentsVisualEffect(Transform marketTransform){
+    private void SellBackpackContentsVisualEffect(Transform marketTransform)
+    {
         //scale in and out the backpack
         StartCoroutine(SellingVisualEffectCoroutine(marketTransform));
-        
+
     }
 
-    IEnumerator SellingVisualEffectCoroutine(Transform marketTransform){
-        Tweener curTweener=null;
-        Vector3 marketOriginalScale=marketTransform.localScale;
+    IEnumerator SellingVisualEffectCoroutine(Transform marketTransform)
+    {
+        Tweener curTweener = null;
+        Tweener backpackTweener=null;
+        Vector3 marketOriginalScale = marketTransform.localScale;
+        Vector3 backpackOriginalScale = backpackFullModel.transform.localScale;
 
+        int i = 0;
         foreach (var item in addedPlantsUniqueModels)
         {
-            item.Value.transform.position=placeForBackpack.position;
+            item.Value.transform.position = placeForBackpack.position;
             item.Value.SetActive(true);
-            item.Value.transform.DOMove(marketTransform.position,0.33f).OnComplete(()=>{
+
+            if(backpackTweener!=null) backpackTweener.Kill();
+            backpackFullModel.transform.localScale=backpackOriginalScale;
+
+            if((i+1)!= addedPlantsUniqueModels.Count)            
+            backpackTweener= backpackFullModel.transform.DOPunchScale(marketTransform.localScale * 0.1f, 0.33f, 1, 0.1f);
+            else{
+                backpackTweener= backpackFullModel.transform.DOPunchScale(marketTransform.localScale * 0.1f, 0.33f, 1, 0.1f).OnComplete(()=>{
+                    SetBackpackFull(false);
+                });
+            }
+
+
+            item.Value.transform.DOMove(marketTransform.position, 0.33f).OnComplete(() =>
+            {
                 Destroy(item.Value);
-                if(curTweener==null){
-                    marketOriginalScale=marketTransform.localScale;
-                    curTweener=marketTransform.DOPunchScale(marketTransform.localScale*0.1f,0.33f,1,0.1f);
-                }else{
-                    curTweener.Kill();
-                    marketTransform.localScale=marketOriginalScale;
-                    curTweener=marketTransform.DOPunchScale(marketTransform.localScale*0.1f,0.33f,1,0.1f);
+                if (curTweener == null)
+                {
+                    marketOriginalScale = marketTransform.localScale;
+                    curTweener = marketTransform.DOPunchScale(marketTransform.localScale * 0.1f, 0.33f, 1, 0.1f);
                 }
-                
+                else
+                {
+                    curTweener.Kill();
+                    marketTransform.localScale = marketOriginalScale;
+                    curTweener = marketTransform.DOPunchScale(marketTransform.localScale * 0.1f, 0.33f, 1, 0.1f);
+                }
+
                 //scale in and out the market
             });
-            yield return new WaitForSeconds(0.15f);
+
+            i++;
+
+            if (i != addedPlantsUniqueModels.Count)
+                yield return new WaitForSeconds(0.15f);
         }
         addedPlantsSet.Clear();
         addedPlantsUniqueModels.Clear();
+
+       // SetBackpackFull(false);
+    }
+
+    public void SetBackpackFull(bool isFull)
+    {
+        backpackModel.SetActive(!isFull);
+        backpackFullModel.SetActive(isFull);
     }
 }
