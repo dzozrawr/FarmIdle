@@ -199,7 +199,7 @@ RectTransform:
   m_GameObject: {fileID: 2537643246383661843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.082492, y: 2.082492, z: 2.082492}
+  m_LocalScale: {x: 2.241282, y: 2.1605856, z: 2.082492}
   m_Children:
   - {fileID: 8663182336676347487}
   - {fileID: 994078700951459112}
@@ -208,7 +208,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -114}
+  m_AnchoredPosition: {x: 0, y: -170}
   m_SizeDelta: {x: 412.8022, y: 57.195557}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7171639032527134703
@@ -459,7 +459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -15.8978, y: 1.6236}
+  m_AnchoredPosition: {x: -6, y: 1.6236}
   m_SizeDelta: {x: -146.0132, y: -54.7173}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6994021831510649958
@@ -499,8 +499,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1010,7 +1010,7 @@ RectTransform:
   m_GameObject: {fileID: 6975257154679574594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1749398, y: 1.1749398, z: 1.1749398}
+  m_LocalScale: {x: 1.5169449, y: 1.5169449, z: 1.5169449}
   m_Children:
   - {fileID: 3653037672494156883}
   m_Father: {fileID: 6975257154083285179}
@@ -1018,8 +1018,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -163.6542, y: -52.0608}
-  m_SizeDelta: {x: 278.9862, y: 85.0273}
+  m_AnchoredPosition: {x: -164, y: -74}
+  m_SizeDelta: {x: 260.01, y: 85.027}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6975257154679574599
 CanvasRenderer:
