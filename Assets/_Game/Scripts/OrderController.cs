@@ -87,6 +87,8 @@ public class OrderController : MonoBehaviour
 
             curOrder = orders[0];
             orders.RemoveAt(0);
+            
+            
             orderUIElement.InitOrder(curOrder);
         }
     }

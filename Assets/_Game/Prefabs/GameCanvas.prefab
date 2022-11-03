@@ -1098,7 +1098,7 @@ MonoBehaviour:
     quantity: 5
     coinRewardAmount: 20
     plantSprite: {fileID: 21300000, guid: bcb7cb6122d61c34fb9c0ad8ccdf6702, type: 3}
-  - plantType: 1
+  - plantType: 2
     quantity: 15
     coinRewardAmount: 100
     plantSprite: {fileID: 21300000, guid: 518362d2e6b36a141bf07dc8f3d5e1c3, type: 3}
