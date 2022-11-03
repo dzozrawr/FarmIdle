@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         // playerAnimator.SetTrigger("Walk");
         //playerAnimator.SetFloat("speed", 0f);
-      //  joystick.OnPointerDown(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.));
+        //  joystick.OnPointerDown(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.));
         //joystick.OnPointerUp(null);
     }
 
@@ -66,21 +66,23 @@ public class PlayerController : MonoBehaviour
 
         // if(moveVector.magnitude>0){
         playerAnimator.SetFloat("speed", joystick.Direction.magnitude);
-        //playerAnimator.
-        // Debug.Log(moveVector.x);
-        //Debug.Log
 
-        // Debug.Log(moveVector.magnitude);
 
-        if ((prevJoystickMagnitude == 0f) && (joystick.Direction.magnitude > 0f))
+
+        if (playerAnimator.GetBool("isWalking") != (joystick.Direction.magnitude > 0))
         {
-            playerAnimator.SetTrigger("Walk");
+            playerAnimator.SetBool("isWalking", joystick.Direction.magnitude > 0);
         }
+        /* 
+                if ((prevJoystickMagnitude == 0f) && (joystick.Direction.magnitude > 0f))
+                {
+                    playerAnimator.SetTrigger("Walk");
+                }
 
-        if ((prevJoystickMagnitude > 0f) && (joystick.Direction.magnitude == 0f))
-        {
-            playerAnimator.SetTrigger("Idle");
-        }
+                if ((prevJoystickMagnitude > 0f) && (joystick.Direction.magnitude == 0f))
+                {
+                    playerAnimator.SetTrigger("Idle");
+                } */
 
         /*         if ((prevMoveVector == Vector3.zero) && (moveVector != Vector3.zero))
                 {
@@ -169,7 +171,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator SellingVisualEffectCoroutine(Transform marketTransform)
     {
         Tweener curTweener = null;
-        Tweener backpackTweener=null;
+        Tweener backpackTweener = null;
         Vector3 marketOriginalScale = marketTransform.localScale;
         Vector3 backpackOriginalScale = backpackFullModel.transform.localScale;
 
@@ -179,13 +181,15 @@ public class PlayerController : MonoBehaviour
             item.Value.transform.position = placeForBackpack.position;
             item.Value.SetActive(true);
 
-            if(backpackTweener!=null) backpackTweener.Kill();
-            backpackFullModel.transform.localScale=backpackOriginalScale;
+            if (backpackTweener != null) backpackTweener.Kill();
+            backpackFullModel.transform.localScale = backpackOriginalScale;
 
-            if((i+1)!= addedPlantsUniqueModels.Count)            
-            backpackTweener= backpackFullModel.transform.DOPunchScale(marketTransform.localScale * 0.1f, 0.33f, 1, 0.1f);
-            else{
-                backpackTweener= backpackFullModel.transform.DOPunchScale(marketTransform.localScale * 0.1f, 0.33f, 1, 0.1f).OnComplete(()=>{
+            if ((i + 1) != addedPlantsUniqueModels.Count)
+                backpackTweener = backpackFullModel.transform.DOPunchScale(marketTransform.localScale * 0.1f, 0.33f, 1, 0.1f);
+            else
+            {
+                backpackTweener = backpackFullModel.transform.DOPunchScale(marketTransform.localScale * 0.1f, 0.33f, 1, 0.1f).OnComplete(() =>
+                {
                     SetBackpackFull(false);
                 });
             }
@@ -218,7 +222,7 @@ public class PlayerController : MonoBehaviour
         addedPlantsSet.Clear();
         addedPlantsUniqueModels.Clear();
 
-       // SetBackpackFull(false);
+        // SetBackpackFull(false);
     }
 
     public void SetBackpackFull(bool isFull)
