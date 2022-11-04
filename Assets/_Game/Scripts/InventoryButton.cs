@@ -14,6 +14,7 @@ public class InventoryButton : MonoBehaviour
 
 
     public void OnClick(){
-        gameController.CurSelectedPlant=plant;
+        Debug.Log(" OnClick()");
+       // gameController.CurSelectedPlant=plant;
     }
 }
