@@ -6,7 +6,7 @@ using Cinemachine;
 
 public class TileLocker : MonoBehaviour
 {
-    public bool isLocked = false;   //all the tiles are unlocked by default
+    public bool isLocked = true;   //all the tiles are unlocked by default
 
     public Canvas lockedUI = null;
 
