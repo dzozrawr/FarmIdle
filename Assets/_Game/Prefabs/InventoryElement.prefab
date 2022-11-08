@@ -212,6 +212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plant: {fileID: 0}
+  unselectedBacgkround: {fileID: 9030591019849982348}
+  selectedBackground: {fileID: 1231608507500715433}
 --- !u!114 &2955940841745358735
 MonoBehaviour:
   m_ObjectHideFlags: 0
