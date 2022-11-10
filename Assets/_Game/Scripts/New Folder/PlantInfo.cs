@@ -1,7 +1,7 @@
 public class PlantInfo 
 {
     public enum PlantType{
-        Sunflower, Tulip, Daffodil
+        Sunflower, Tulip, Daffodil, Pepper, Tomato, Pumpkin, Strawberry, Watermelon
     }
 
     private PlantType type;
