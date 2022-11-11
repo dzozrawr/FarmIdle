@@ -110,6 +110,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fc8d8bd22f1f52242ad34db27d03fd20, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
     - target: {fileID: 919132149155446097, guid: fc8d8bd22f1f52242ad34db27d03fd20, type: 3}
       propertyPath: m_Name
       value: Daffodil Stage 2
@@ -181,6 +185,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 722ebc201cb61924dba75b37fd01f171, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 722ebc201cb61924dba75b37fd01f171, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0cc99d6e58a1cd4b9bd1f1074853ca9, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 722ebc201cb61924dba75b37fd01f171, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3bfbea3d1970ca94797561b08ca5ef4d, type: 2}
     - target: {fileID: 919132149155446097, guid: 722ebc201cb61924dba75b37fd01f171, type: 3}
       propertyPath: m_Name
       value: Daffodil Stage 3
@@ -252,9 +268,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7ee490ad021418945bbcc122100a3ea1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
     - target: {fileID: 919132149155446097, guid: 7ee490ad021418945bbcc122100a3ea1, type: 3}
       propertyPath: m_Name
       value: Daffodil Stage 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7ee490ad021418945bbcc122100a3ea1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee490ad021418945bbcc122100a3ea1, type: 3}

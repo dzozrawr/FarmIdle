@@ -110,9 +110,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e2b9ae5bde3a1024ab49e50e69312e76, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
     - target: {fileID: 919132149155446097, guid: e2b9ae5bde3a1024ab49e50e69312e76, type: 3}
       propertyPath: m_Name
       value: Sunflower Stage 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e2b9ae5bde3a1024ab49e50e69312e76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b9ae5bde3a1024ab49e50e69312e76, type: 3}
@@ -206,6 +214,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7f449558805db9a439c030079ddc01b8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc3440b932447b44ba1f725e93caacb5, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 7f449558805db9a439c030079ddc01b8, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b5e90fe57d644845be3e181d3bcad8f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 7f449558805db9a439c030079ddc01b8, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 7f449558805db9a439c030079ddc01b8, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b5e90fe57d644845be3e181d3bcad8f, type: 2}
+    - target: {fileID: -5368909943390227630, guid: 7f449558805db9a439c030079ddc01b8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b5e90fe57d644845be3e181d3bcad8f, type: 2}
+    - target: {fileID: -4919781271889006055, guid: 7f449558805db9a439c030079ddc01b8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc3440b932447b44ba1f725e93caacb5, type: 2}
+    - target: {fileID: -4919781271889006055, guid: 7f449558805db9a439c030079ddc01b8, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
+    - target: {fileID: -4919781271889006055, guid: 7f449558805db9a439c030079ddc01b8, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b5e90fe57d644845be3e181d3bcad8f, type: 2}
     - target: {fileID: 919132149155446097, guid: 7f449558805db9a439c030079ddc01b8, type: 3}
       propertyPath: m_Name
       value: Sunflower Stage 2
@@ -277,6 +317,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 65fe58b8f17dc6545a85f1c47f66a809, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9f1fde1de98c3b1409f8d15adcdcf1bb, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 65fe58b8f17dc6545a85f1c47f66a809, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a766b57f921a6d446baa541f5c2ae8c0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 65fe58b8f17dc6545a85f1c47f66a809, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
     - target: {fileID: 919132149155446097, guid: 65fe58b8f17dc6545a85f1c47f66a809, type: 3}
       propertyPath: m_Name
       value: Sunflower Stage 3

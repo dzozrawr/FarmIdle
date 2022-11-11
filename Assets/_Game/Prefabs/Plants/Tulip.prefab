@@ -110,6 +110,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
     - target: {fileID: 919132149155446097, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
       propertyPath: m_Name
       value: Tulip Stage 3
@@ -181,6 +185,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0e0c94697f10c6b4c952608fe9e53f6f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
     - target: {fileID: 919132149155446097, guid: 0e0c94697f10c6b4c952608fe9e53f6f, type: 3}
       propertyPath: m_Name
       value: Tulip Stage 1
@@ -277,6 +285,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 692e1b1341567e7478954dd065a7fa1c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
     - target: {fileID: 919132149155446097, guid: 692e1b1341567e7478954dd065a7fa1c, type: 3}
       propertyPath: m_Name
       value: Tulip Stage 2
