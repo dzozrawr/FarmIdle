@@ -37,7 +37,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource defaultAudioSrc;
     //public AudioSource backgroundMusicAudioSrc;
 
-    private AudioClip plantingSound, harvestingSound, sellingSound;
+    private AudioClip plantingSound, harvestingSound, sellingSound, coinClaimSound;
 
     private void Awake()
     {
@@ -59,6 +59,7 @@ public class SoundManager : MonoBehaviour
         plantingSound = Resources.Load<AudioClip>("plantingSound");
         harvestingSound = Resources.Load<AudioClip>("harvestingSound");
         sellingSound = Resources.Load<AudioClip>("sellingSound");
+        coinClaimSound = Resources.Load<AudioClip>("coinClaim");
     }
 
 
@@ -92,6 +93,10 @@ public class SoundManager : MonoBehaviour
             case "sellingSound":
 
                 audioSrc.PlayOneShot(sellingSound);
+                break;
+            case "coinClaim":
+
+                audioSrc.PlayOneShot(coinClaimSound);
                 break;
         }
     }
