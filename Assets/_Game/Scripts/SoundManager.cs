@@ -95,8 +95,10 @@ public class SoundManager : MonoBehaviour
                 audioSrc.PlayOneShot(sellingSound);
                 break;
             case "coinClaim":
+                //audioSrc.isPlaying
+                //if(audioSrc.clip==coinClaimSound) audioSrc.
+                PlaySoundWCooldown(coinClaimSound,1,0.05f);
 
-                audioSrc.PlayOneShot(coinClaimSound);
                 break;
         }
     }
@@ -112,6 +114,8 @@ public class SoundManager : MonoBehaviour
         }
         coroutine = StartCoroutine(ResetPitchCoroutine());
     }
+
+
 
     public void PlaySound(AudioClip audioClip, float volume = 1f)
     {
@@ -142,9 +146,19 @@ public class SoundManager : MonoBehaviour
         audioSrc.pitch = defaultPitch;
     }
 
-    IEnumerator PlayOneShotWCooldown(AudioSource src, AudioClip clip, float volume = 1f, float coolDown = 0.1f)
+    public void PlaySoundWCooldown(AudioClip clip, float volume = 1f, float cooldown=0.1f)
     {
-        src.PlayOneShot(clip, volume);
+       // audioSrc.pitch += PitchStep;
+        if (cooldownCoroutine == null)
+        {
+            audioSrc.PlayOneShot(clip,volume);
+            cooldownCoroutine= StartCoroutine(ResetCooldownCoroutine(cooldown));
+        }
+        //coroutine = StartCoroutine(ResetPitchCoroutine());
+    }
+
+    IEnumerator ResetCooldownCoroutine( float coolDown)
+    {
         yield return new WaitForSeconds(coolDown);
         cooldownCoroutine = null;
     }
