@@ -16,6 +16,8 @@ public abstract class PlantController : MonoBehaviour
 
     public float timeToScaleOutOnHarvest=0.2f;
 
+    public float marketScaleBy=0.75f;
+
     public delegate void Notify();
 
     public event Notify PlantGrown;

@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
         //joystick.Vertical
     }
 
-    public void AddPlantToBackpack(PlantInfo plant, GameObject plantModel)
+    public void AddPlantToBackpack(PlantInfo plant, GameObject plantModel, float marketScaleBy = 1f)
     {
         if (backpackPlantsList == null)
         {
@@ -132,6 +132,8 @@ public class PlayerController : MonoBehaviour
             addedPlantsSet.Add(plant.Type);
 
             GameObject plantModelCopy = Instantiate(plantModel);  //the plant model will be destroyed so we make a copy here
+            plantModelCopy.transform.localScale *= plantModel.transform.parent.localScale.x;//sets the scale correctly for world coords
+            plantModelCopy.transform.localScale *= marketScaleBy;
             plantModelCopy.SetActive(false);
 
             addedPlantsUniqueModels.Add(plant.Type, plantModelCopy); //adding one model for each plant type (to do the selling in the market effect)
