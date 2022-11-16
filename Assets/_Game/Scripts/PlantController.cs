@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Aezakmi.Tweens;
 using UnityEngine;
+using DG.Tweening;
 
 public abstract class PlantController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public abstract class PlantController : MonoBehaviour
     public int coinWorth = 0;
     
     public float timeNeededToGrow = 1f;
+
+    public float timeToScaleOutOnHarvest=0.2f;
 
     public delegate void Notify();
 
@@ -72,6 +75,9 @@ public abstract class PlantController : MonoBehaviour
     public abstract void OnHarvestSpecific();
     public void OnHarvest()
     {
+        transform.DOScale(Vector3.zero,timeToScaleOutOnHarvest).OnComplete(()=>{
+            Destroy(gameObject);
+        });
         OnHarvestSpecific();
         PlantHarvested?.Invoke(type);
     }
