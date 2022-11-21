@@ -51,6 +51,8 @@ MonoBehaviour:
   type: 2
   coinWorth: 5
   timeNeededToGrow: 2
+  timeToScaleOutOnHarvest: 0.1
+  marketScaleBy: 0.75
   tweenForPlanting: {fileID: 4566881994231097919}
   models:
   - {fileID: 8838981633094060578}

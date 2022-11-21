@@ -9,12 +9,13 @@ public abstract class PlantController : MonoBehaviour
 
     public delegate void PlantHarvestedHandler(PlantInfo.PlantType plantType);
     public static event PlantHarvestedHandler PlantHarvested;
+    private static float timeToScaleOutOnHarvest=0.1f;
     public PlantInfo.PlantType type;
     public int coinWorth = 0;
     
     public float timeNeededToGrow = 1f;
 
-    public float timeToScaleOutOnHarvest=0.2f;
+    
 
     public float marketScaleBy=0.75f;
 
