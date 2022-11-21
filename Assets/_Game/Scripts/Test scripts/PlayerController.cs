@@ -35,9 +35,13 @@ public class PlayerController : MonoBehaviour
 
     private GameController gameController = null;
 
+    private bool hasBucketOfWater=false;
+
     private HashSet<PlantInfo.PlantType> addedPlantsSet = new HashSet<PlantInfo.PlantType>();
 
     private Dictionary<PlantInfo.PlantType, GameObject> addedPlantsUniqueModels = new Dictionary<PlantInfo.PlantType, GameObject>();
+
+    public bool HasBucketOfWater { get => hasBucketOfWater; set => hasBucketOfWater = value; }
 
     private void Awake()
     {

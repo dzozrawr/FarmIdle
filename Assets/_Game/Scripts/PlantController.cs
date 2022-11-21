@@ -73,6 +73,11 @@ public abstract class PlantController : MonoBehaviour
         GrowInitThings();
     }
 
+    public void BoostProgressBy(float perc){
+        progress=(progress+perc)>1f?1f:(progress+perc);
+        growingCurTime=progress*timeNeededToGrow;
+    }
+
     public abstract void GrowInitThings();
 
     public abstract void OnHarvestSpecific();

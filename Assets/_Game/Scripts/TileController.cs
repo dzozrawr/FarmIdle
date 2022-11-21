@@ -6,6 +6,8 @@ public class TileController : MonoBehaviour
 {
     public Collider hitBoxCollider = null;
     public Transform placeForPlant = null;
+
+    private static float wateringProgressBoostPercentage=0.33f;
     private PlantController plant = null;
 
     private TileState state;
@@ -75,6 +77,12 @@ public class TileController : MonoBehaviour
     public void SetInteractable(bool isInteractable)
     {
         this.isInteractable=isInteractable;
+    }
+
+    public void WaterPlant(){
+        if(plant!=null){
+            plant.BoostProgressBy(wateringProgressBoostPercentage);
+        }
     }
 
 }
