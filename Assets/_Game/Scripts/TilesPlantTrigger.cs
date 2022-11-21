@@ -11,6 +11,8 @@ public class TilesPlantTrigger : MonoBehaviour
     private CameraController cameraController = null;
     private GameController gameController = null;
 
+    private PlayerController playerController = null;
+
     private Button checkmarkButton = null;
 
     private void Awake()
@@ -22,14 +24,26 @@ public class TilesPlantTrigger : MonoBehaviour
     {
         cameraController = CameraController.Instance;
         gameController = GameController.Instance;
+        playerController = gameController.playerController;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        cameraController.TransitionToCMVirtualCamera(tilesManager.plantCamera);
-        CheckForCameraBlending.onCameraBlendFinished += OnCameraTransitionToPlantsFinished;
+        // Debug.Log("OnTriggerEnter");
+        if (!playerController.HasBucketOfWater)
+        {
+            cameraController.TransitionToCMVirtualCamera(tilesManager.plantCamera);
+            CheckForCameraBlending.onCameraBlendFinished += OnCameraTransitionToPlantsFinished;
 
-        gameController.playerController.SetJoystickEnabledAndVisible(false);
+            gameController.playerController.SetJoystickEnabledAndVisible(false);
+        }
+        else
+        {
+            playerController.HasBucketOfWater=false;
+            tilesManager.SetTilesWet();
+            Debug.Log("Bucket emptied");
+        }
+
     }
 
     private void OnCameraTransitionToPlantsFinished()

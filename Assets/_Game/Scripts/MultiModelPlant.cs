@@ -14,9 +14,9 @@ public class MultiModelPlant : PlantController
 
     public GameObject[] models = null;
 
-    public Canvas progressCanvas = null; //special case
+    //public Canvas progressCanvas = null; //special case
 
-    public ProgressCircle progressCircle = null; //special case
+  //  public ProgressCircle progressCircle = null; //special case
 
     public CoinUIForPlant coinUIForPlant = null;
     public override void GrowInitThings()
@@ -37,7 +37,7 @@ public class MultiModelPlant : PlantController
 
 
 
-        progressCanvas.enabled = true;
+      //  progressCanvas.enabled = true;
     }
 
     IEnumerable FadeInTween(CanvasGroup cg, float duration)
@@ -69,13 +69,13 @@ public class MultiModelPlant : PlantController
             models[1].SetActive(true);
         }
 
-        progressCircle.SetProgress(progress);
+        //progressCircle.SetProgress(progress);
     }
 
     public override void OnHarvestSpecific()
     {
         if (gameController == null) gameController = GameController.Instance;
-        gameController.playerController.AddPlantToBackpack(new PlantInfo(type, coinWorth),GetGrownPlantModel());
+        gameController.playerController.AddPlantToBackpack(new PlantInfo(type, coinWorth),GetGrownPlantModel(),marketScaleBy);
         //coinUIForPlant.PlayCoinEarnAnimationAndDie(coinWorth);
     }
 

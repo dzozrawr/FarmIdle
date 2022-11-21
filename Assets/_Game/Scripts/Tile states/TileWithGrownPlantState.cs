@@ -33,7 +33,7 @@ public class TileWithGrownPlantState : TileState
         SoundManager.Instance.PlaySoundWPitchChange("harvestingSound");
         tileController.Plant.OnHarvest();
 
-        MonoBehaviour.Destroy(tileController.Plant.gameObject);
+        //MonoBehaviour.Destroy(tileController.Plant.gameObject);
 
         tileController.GoToNextState();
 

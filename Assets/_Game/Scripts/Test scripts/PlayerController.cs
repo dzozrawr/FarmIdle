@@ -35,9 +35,13 @@ public class PlayerController : MonoBehaviour
 
     private GameController gameController = null;
 
+    private bool hasBucketOfWater=false;
+
     private HashSet<PlantInfo.PlantType> addedPlantsSet = new HashSet<PlantInfo.PlantType>();
 
     private Dictionary<PlantInfo.PlantType, GameObject> addedPlantsUniqueModels = new Dictionary<PlantInfo.PlantType, GameObject>();
+
+    public bool HasBucketOfWater { get => hasBucketOfWater; set => hasBucketOfWater = value; }
 
     private void Awake()
     {
@@ -115,7 +119,7 @@ public class PlayerController : MonoBehaviour
         //joystick.Vertical
     }
 
-    public void AddPlantToBackpack(PlantInfo plant, GameObject plantModel)
+    public void AddPlantToBackpack(PlantInfo plant, GameObject plantModel, float marketScaleBy = 1f)
     {
         if (backpackPlantsList == null)
         {
@@ -132,6 +136,8 @@ public class PlayerController : MonoBehaviour
             addedPlantsSet.Add(plant.Type);
 
             GameObject plantModelCopy = Instantiate(plantModel);  //the plant model will be destroyed so we make a copy here
+            plantModelCopy.transform.localScale *= plantModel.transform.parent.localScale.x;//sets the scale correctly for world coords
+            plantModelCopy.transform.localScale *= marketScaleBy;
             plantModelCopy.SetActive(false);
 
             addedPlantsUniqueModels.Add(plant.Type, plantModelCopy); //adding one model for each plant type (to do the selling in the market effect)
