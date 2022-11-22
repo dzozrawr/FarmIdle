@@ -172,7 +172,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc06c09f5891eb44791b3a1501688cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   coinWorth: 2
+  timeNeededToGrow: 1
+  marketScaleBy: 0.75
+  readyForHarvestParticles: {fileID: 0}
   tweenForPlanting: {fileID: 8016246295659165108}
   plantModel: {fileID: 921075199250840376}
   progressCanvas: {fileID: 7038816970229060992}

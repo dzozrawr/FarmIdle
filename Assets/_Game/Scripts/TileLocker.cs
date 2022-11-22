@@ -48,7 +48,7 @@ public class TileLocker : MonoBehaviour
         if (GameController.CoinAmount >= price)
         {
             if (gameController == null) gameController = GameController.Instance;
-            gameController.AddCoins(-price);
+            gameController.AddMoneyIncrementally(-price);
         }else{
             return;
         }

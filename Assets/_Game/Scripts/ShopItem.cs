@@ -23,7 +23,7 @@ public class ShopItem : MonoBehaviour
 
     public void OnClick(){
         if(priceInt<=GameController.CoinAmount){
-            GameController.Instance.AddCoins(-priceInt);   //reduce the money in game controller
+            GameController.Instance.AddMoneyIncrementally(-priceInt);   //reduce the money in game controller
             shopController.BuyShopItem(type);//do the buying logic in shop controller
             priceText.transform.parent.gameObject.SetActive(false); //apply the bought visual
         }

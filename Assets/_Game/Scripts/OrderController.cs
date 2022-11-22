@@ -64,7 +64,7 @@ public class OrderController : MonoBehaviour
 
     public void OnCompletedOrderButtonClicked()
     {
-        GameController.Instance.AddCoins(curOrder.coinRewardAmount);
+        GameController.Instance.AddMoneyIncrementally(curOrder.coinRewardAmount);
         orderUIElement.completedOrderButton.gameObject.SetActive(false);
 
         Invoke(nameof(GoToNextOrder),0.75f);
