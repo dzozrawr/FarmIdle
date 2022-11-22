@@ -19,6 +19,8 @@ public abstract class PlantController : MonoBehaviour
 
     public float marketScaleBy=0.75f;
 
+    public ParticleSystem readyForHarvestParticles=null;
+
     public delegate void Notify();
 
     public event Notify PlantGrown;
@@ -55,6 +57,8 @@ public abstract class PlantController : MonoBehaviour
                 PlantGrown?.Invoke();
 
                 isGrowing = false;
+
+                if(readyForHarvestParticles!=null) readyForHarvestParticles.Play();
             }
         }
     }
