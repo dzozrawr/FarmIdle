@@ -17,7 +17,7 @@ public class WellScript : MonoBehaviour
         {
             if(!player.HasBucketOfWater){
                 player.HasBucketOfWater=true;
-                Debug.Log("Bucket filled!");
+//                Debug.Log("Bucket filled!");
                 //trigger animation, set bucket enabled and whatnot
             }
         }

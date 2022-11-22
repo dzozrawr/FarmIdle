@@ -9,15 +9,23 @@ public class ShopItem : MonoBehaviour
     public TMP_Text priceText=null;
 
     private int priceInt;
+    private ShopController shopController=null;
 
     public int PriceInt { get => priceInt; set => priceInt = value; }
 
     private void Awake() {
         priceInt=int.Parse(priceText.text);  
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+    private void Start() {
+        shopController=ShopController.Instance;
+    }
+
+    public void OnClick(){
+        if(priceInt<=GameController.CoinAmount){
+            GameController.Instance.AddCoins(-priceInt);   //reduce the money in game controller
+            shopController.BuyShopItem(type);//do the buying logic in shop controller
+            priceText.transform.parent.gameObject.SetActive(false); //apply the bought visual
+        }
     }
 }
