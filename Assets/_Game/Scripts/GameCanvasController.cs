@@ -22,7 +22,7 @@ public class GameCanvasController : MonoBehaviour
     public void OnMoneyAmountChanged()
     {
         coinAmountTxt.text =GameController.CoinAmount+"";
-        SoundManager.Instance.PlaySound("coinClaim");   //or maybe without sound?
+      //  SoundManager.Instance.PlaySound("coinClaim");   //or maybe without sound?
     }
 
     public void OnMoneyAmountChangedIncrementally()

@@ -18,7 +18,7 @@ public class MultiModelPlant : PlantController
 
   //  public ProgressCircle progressCircle = null; //special case
 
-    public CoinUIForPlant coinUIForPlant = null;
+    public CoinUIEarnScript coinUIForPlant = null;
     public override void GrowInitThings()
     {
         startingScale = models[0].transform.localScale.x;

@@ -5,7 +5,10 @@ using TMPro;
 
 public class WindmillScript : MonoBehaviour
 {
+    private static int maxLvl=4;
     private int lvl = 0;
+
+    
 
     private int moneyIncrement = 2;
 
@@ -21,7 +24,7 @@ public class WindmillScript : MonoBehaviour
 
     public EndlessRotate endlessRotateOfBlades = null;
 
-    public CoinUIForPlant moneyWorldUI = null;
+    public CoinUIEarnScript moneyWorldUI = null;
 
     public TMP_Text priceText=null;
     
@@ -52,6 +55,7 @@ public class WindmillScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(lvl<maxLvl)
         canvasForLvlUp.enabled = true;//enable lvlUP button
 
     }
@@ -60,26 +64,28 @@ public class WindmillScript : MonoBehaviour
     {
         if (lvlUpPrice > GameController.CoinAmount) return;
         gameController.AddMoney(-lvlUpPrice);
+        SoundManager.Instance.PlaySound("coinClaim");
 
         switch (lvl)
         {
             case 0:
-
                 endlessRotateOfBlades.enabled = true; //start rotation of blades
                 isMoneyMakingActive = true;//start money making over time
                 //moneyWorldUI.SetMoneyAmount(moneyIncrement);
                 lvl++;
                 break;
             case 1:
-                moneyIncrement = 3;
+                moneyIncTime/=2f;
+                //moneyIncrement = 3;
                 lvl++;
                 break;
             case 2:
-                moneyIncrement = 5;
+                moneyIncrement = 4;
                 lvl++;
                 break;
             case 3:
-                moneyIncrement = 7;
+                moneyIncTime/=2f;
+                //moneyIncrement = 5;
                 lvl++;
                 break;
             default:

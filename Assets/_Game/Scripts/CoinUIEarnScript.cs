@@ -5,7 +5,7 @@ using TMPro;
 using Aezakmi.Tweens;
 using DG.Tweening;
 
-public class CoinUIForPlant : MonoBehaviour
+public class CoinUIEarnScript : MonoBehaviour
 {
     public GameObject coinTextGO = null;
 
@@ -21,6 +21,8 @@ public class CoinUIForPlant : MonoBehaviour
     private float animationDuration = 0f;
 
     private Canvas canvas = null;
+
+    private Coroutine fadeInCoroutine=null;
 
 
     private void Awake()
@@ -58,6 +60,7 @@ public class CoinUIForPlant : MonoBehaviour
 
         cg.alpha = 1;
         SetMoneyUIToDefaultState();
+        fadeInCoroutine=null;
     }
 
     private void SetMoneyUIToDefaultState()
@@ -69,6 +72,13 @@ public class CoinUIForPlant : MonoBehaviour
     public void PlayCoinEarnAnimation()
     {
         // transform.SetParent(transform.parent.parent);
+        if(fadeInCoroutine!=null){
+            StopCoroutine(fadeInCoroutine);
+            fadeInCoroutine=null;
+            SetMoneyUIToDefaultState();
+            tweener.Tweener.Pause();
+            tweener.Tweener.Kill();
+        }
 
         coinText.text = "+" + moneyAmount;
 
@@ -78,7 +88,7 @@ public class CoinUIForPlant : MonoBehaviour
 
         });
         tweener.PlayTween();
-        StartCoroutine(FadeInTween(coinTextCanvasGroup, animationDuration));
+        fadeInCoroutine=StartCoroutine(FadeInTween(coinTextCanvasGroup, animationDuration));
     }
 
     public void PlayCoinEarnAnimation(int coinAmount)
