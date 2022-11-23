@@ -51,6 +51,7 @@ MonoBehaviour:
   coinWorth: 5
   timeNeededToGrow: 2
   marketScaleBy: 0.75
+  readyForHarvestParticles: {fileID: 0}
   tweenForPlanting: {fileID: 4745695834019105163}
   models:
   - {fileID: 7443980855729117041}
