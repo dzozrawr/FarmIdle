@@ -7181,7 +7181,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_TargetDisplay: 0
 --- !u!224 &1527532380
 RectTransform:
@@ -11055,6 +11055,10 @@ PrefabInstance:
     - target: {fileID: 6302767623597198888, guid: 33e4b105b4098eb46bdf3bfea7bc71cc, type: 3}
       propertyPath: m_Name
       value: The well
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333533622977430250, guid: 33e4b105b4098eb46bdf3bfea7bc71cc, type: 3}
+      propertyPath: loopDuration
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33e4b105b4098eb46bdf3bfea7bc71cc, type: 3}
