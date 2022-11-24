@@ -14532,6 +14532,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76ab2ce2c441d8648a6baf8d81f182b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
       propertyPath: m_Name
       value: Tulip Stage 3 (2)
@@ -14598,6 +14602,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76ab2ce2c441d8648a6baf8d81f182b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
       propertyPath: m_Name
       value: Tulip Stage 3 (10)
@@ -14988,6 +14996,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76ab2ce2c441d8648a6baf8d81f182b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
       propertyPath: m_Name
       value: Tulip Stage 3 (6)
@@ -15252,6 +15264,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76ab2ce2c441d8648a6baf8d81f182b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
       propertyPath: m_Name
       value: Tulip Stage 3 (5)
@@ -15714,6 +15730,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76ab2ce2c441d8648a6baf8d81f182b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
       propertyPath: m_Name
       value: Tulip Stage 3 (3)
@@ -15780,6 +15800,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76ab2ce2c441d8648a6baf8d81f182b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
       propertyPath: m_Name
       value: Tulip Stage 3 (4)
@@ -15846,6 +15870,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76ab2ce2c441d8648a6baf8d81f182b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
       propertyPath: m_Name
       value: Tulip Stage 3 (8)
@@ -16078,6 +16106,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76ab2ce2c441d8648a6baf8d81f182b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
       propertyPath: m_Name
       value: Tulip Stage 3 (1)
@@ -16210,6 +16242,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76ab2ce2c441d8648a6baf8d81f182b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
       propertyPath: m_Name
       value: Tulip Stage 3 (7)
@@ -16560,6 +16596,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76ab2ce2c441d8648a6baf8d81f182b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
       propertyPath: m_Name
       value: Tulip Stage 3 (9)
@@ -16849,6 +16889,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: afa7573af689dc84689a94ac442c76d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76ab2ce2c441d8648a6baf8d81f182b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 55a2098774ba56b40b62f29808069e77, type: 3}
       propertyPath: m_Name
       value: Tulip Stage 3

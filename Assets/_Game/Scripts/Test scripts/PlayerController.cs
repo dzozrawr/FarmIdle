@@ -86,8 +86,8 @@ public class PlayerController : MonoBehaviour
 
         if ((playerAnimator.GetBool("isBucketWalking") != (joystick.Direction.magnitude > 0)) && hasBucketOfWater)
         {
+            playerAnimator.SetBool("isBucketWalking", true);
             if(playerAnimator.GetBool("isWalking")) playerAnimator.SetBool("isWalking",false);
-            playerAnimator.SetBool("isBucketWalking", joystick.Direction.magnitude > 0);
         }
 
 

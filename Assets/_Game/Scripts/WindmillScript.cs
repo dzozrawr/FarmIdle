@@ -29,7 +29,7 @@ public class WindmillScript : MonoBehaviour
     public TMP_Text priceText=null;
     
     //public GameObject lvlUp
-
+    public GameObject[] windmillModels=null;
 
 
     // Start is called before the first frame update
@@ -55,8 +55,8 @@ public class WindmillScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(lvl<maxLvl)
-        canvasForLvlUp.enabled = true;//enable lvlUP button
+/*         if(lvl<maxLvl)
+        canvasForLvlUp.enabled = true;//enable lvlUP button */
 
     }
 
@@ -69,40 +69,58 @@ public class WindmillScript : MonoBehaviour
         switch (lvl)
         {
             case 0:
-                endlessRotateOfBlades.enabled = true; //start rotation of blades
+              // endlessRotateOfBlades.enabled = true; //start rotation of blades
                 isMoneyMakingActive = true;//start money making over time
                 //moneyWorldUI.SetMoneyAmount(moneyIncrement);
-                lvl++;
+                
                 break;
             case 1:
                 moneyIncTime/=2f;
                 //moneyIncrement = 3;
-                lvl++;
+           
                 break;
             case 2:
                 moneyIncrement = 4;
-                lvl++;
+                Aezakmi.Tweens.Scale scaleOfWindmill0=windmillModels[0].GetComponent<Aezakmi.Tweens.Scale>();
+                scaleOfWindmill0.AddDelegateOnComplete(()=>{
+                    windmillModels[0].SetActive(false);
+                });
+                scaleOfWindmill0.PlayTween();
+
+
+                Aezakmi.Tweens.Scale scaleOfWindmill1=windmillModels[1].GetComponent<Aezakmi.Tweens.Scale>();
+                windmillModels[1].transform.localScale=Vector3.zero;
+                windmillModels[1].SetActive(true);
+
+                EndlessRotate endlessRotateOfBlades1=windmillModels[1].GetComponentInChildren<EndlessRotate>();
+                endlessRotateOfBlades1.rotSpeed=endlessRotateOfBlades.rotSpeed;
+                endlessRotateOfBlades=endlessRotateOfBlades1;
+
+                scaleOfWindmill1.PlayTween();
+                //scaleOfWindmill1.AddDelegateOnComplete(()=>{windmillModels[1].GetComponentInChildren<Collider>().enabled=true;});
+                //new model here
                 break;
             case 3:
                 moneyIncTime/=2f;
                 //moneyIncrement = 5;
-                lvl++;
+               
                 break;
             default:
                 //  endlessRotateOfBlades.rotSpeed *= 2f;
                 break;
         }
+        lvl++;
         moneyWorldUI.SetMoneyAmount(moneyIncrement);
         endlessRotateOfBlades.rotSpeed *= 2f;
         lvlUpPrice *= 2;
         priceText.text=lvlUpPrice+"";
-        canvasForLvlUp.enabled=false;
+        if(lvl>=maxLvl) canvasForLvlUp.enabled=false;
 
         //set UI to show new price
     }
 
     private void OnTriggerExit(Collider other)
     {
-        canvasForLvlUp.enabled = false; //disable lvlUP button
+      //  canvasForLvlUp.enabled = false; //disable lvlUP button
     }
 }
