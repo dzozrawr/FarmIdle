@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     private GameController gameController = null;
 
-    private bool hasBucketOfWater=false;
+    private bool hasBucketOfWater = false;
 
     private HashSet<PlantInfo.PlantType> addedPlantsSet = new HashSet<PlantInfo.PlantType>();
 
@@ -71,11 +71,21 @@ public class PlayerController : MonoBehaviour
         // if(moveVector.magnitude>0){
         playerAnimator.SetFloat("speed", joystick.Direction.magnitude);
 
+        /*         if (playerAnimator.GetBool("isWalking") != (joystick.Direction.magnitude > 0))
+                {
+                    playerAnimator.SetBool("isWalking", joystick.Direction.magnitude > 0);
+                } */
 
-
-        if (playerAnimator.GetBool("isWalking") != (joystick.Direction.magnitude > 0))
+        if ((playerAnimator.GetBool("isWalking") != (joystick.Direction.magnitude > 0)) && !hasBucketOfWater)
         {
+             if(playerAnimator.GetBool("isBucketWalking")) playerAnimator.SetBool("isBucketWalking",false);
             playerAnimator.SetBool("isWalking", joystick.Direction.magnitude > 0);
+        }
+
+        if ((playerAnimator.GetBool("isBucketWalking") != (joystick.Direction.magnitude > 0)) && hasBucketOfWater)
+        {
+            if(playerAnimator.GetBool("isWalking")) playerAnimator.SetBool("isWalking",false);
+            playerAnimator.SetBool("isBucketWalking", joystick.Direction.magnitude > 0);
         }
         /* 
                 if ((prevJoystickMagnitude == 0f) && (joystick.Direction.magnitude > 0f))
