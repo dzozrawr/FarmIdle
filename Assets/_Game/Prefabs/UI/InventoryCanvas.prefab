@@ -633,7 +633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51418385035019000, guid: ebc379f8f31a0d9419c0c45f45894ae8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 51418385035019000, guid: ebc379f8f31a0d9419c0c45f45894ae8, type: 3}
       propertyPath: m_AnchorMin.x
@@ -641,7 +641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51418385035019000, guid: ebc379f8f31a0d9419c0c45f45894ae8, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 51418385035019000, guid: ebc379f8f31a0d9419c0c45f45894ae8, type: 3}
       propertyPath: m_SizeDelta.x
@@ -681,11 +681,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51418385035019000, guid: ebc379f8f31a0d9419c0c45f45894ae8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1684
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 51418385035019000, guid: ebc379f8f31a0d9419c0c45f45894ae8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -128
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 51418385035019000, guid: ebc379f8f31a0d9419c0c45f45894ae8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -710,10 +710,6 @@ PrefabInstance:
     - target: {fileID: 5204239786993325664, guid: ebc379f8f31a0d9419c0c45f45894ae8, type: 3}
       propertyPath: m_Name
       value: InventoryButton (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204239786993325664, guid: ebc379f8f31a0d9419c0c45f45894ae8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6270006452000811643, guid: ebc379f8f31a0d9419c0c45f45894ae8, type: 3}
       propertyPath: m_Sprite
