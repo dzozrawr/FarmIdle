@@ -16,18 +16,24 @@ public class GameCanvasController : MonoBehaviour
     {
         gameController = GameController.Instance;
 
-        gameController.CoinAmountChanged += OnMoneyAmountChanged;
+        gameController.MoneyAmountChangedInc += OnMoneyAmountChangedIncrementally;
+        gameController.MoneyAmountChanged += OnMoneyAmountChanged;
     }
-
-
     public void OnMoneyAmountChanged()
     {
+        coinAmountTxt.text =GameController.CoinAmount+"";
+      //  SoundManager.Instance.PlaySound("coinClaim");   //or maybe without sound?
+    }
+
+    public void OnMoneyAmountChangedIncrementally()
+    {
         // coinAmountTxt.text= GameController.CoinAmount+"";
-        if(addMoneyInSequenceCoroutine==null)            
-        addMoneyInSequenceCoroutine = StartCoroutine(AddMoneyInSequence(int.Parse(coinAmountTxt.text), GameController.CoinAmount, 1f));
-        else{
+        if (addMoneyInSequenceCoroutine == null)
+            addMoneyInSequenceCoroutine = StartCoroutine(AddMoneyInSequence(int.Parse(coinAmountTxt.text), GameController.CoinAmount, 1f));
+        else
+        {
             StopCoroutine(addMoneyInSequenceCoroutine);
-            addMoneyInSequenceCoroutine=null;
+            addMoneyInSequenceCoroutine = null;
             addMoneyInSequenceCoroutine = StartCoroutine(AddMoneyInSequence(int.Parse(coinAmountTxt.text), GameController.CoinAmount, 1f));
         }
     }
@@ -59,6 +65,6 @@ public class GameCanvasController : MonoBehaviour
             SoundManager.Instance.PlaySound("coinClaim");
         }
 
-        addMoneyInSequenceCoroutine=null;
+        addMoneyInSequenceCoroutine = null;
     }
 }

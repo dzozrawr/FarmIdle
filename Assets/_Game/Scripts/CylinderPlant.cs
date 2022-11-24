@@ -14,7 +14,7 @@ public class CylinderPlant : PlantController
     public ProgressCircle progressCircle = null; //special case
 
 
-    public CoinUIForPlant coinUIForPlant = null;
+    public CoinUIEarnScript coinUIForPlant = null;
 
     private float startingScale, goalScale = 0.3f; //special case
 

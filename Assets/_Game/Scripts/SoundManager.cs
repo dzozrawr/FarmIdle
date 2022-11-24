@@ -155,6 +155,7 @@ public class SoundManager : MonoBehaviour
             cooldownCoroutine= StartCoroutine(ResetCooldownCoroutine(cooldown));
         }
         //coroutine = StartCoroutine(ResetPitchCoroutine());
+       // Invoke(nameof(Reset),0.5f);
     }
 
     IEnumerator ResetCooldownCoroutine( float coolDown)

@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
             //check for order completion            
         }
         if (gameController == null) gameController = GameController.Instance;
-        gameController.AddCoins(combinedPrice);
+        gameController.AddMoneyIncrementally(combinedPrice);
 
         backpackPlantsList = null;
         /* addedPlantsSet.Clear();

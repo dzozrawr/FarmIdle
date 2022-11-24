@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
 
     public delegate void GameControllerEvent();
 
-    public GameControllerEvent CoinAmountChanged;
+    public GameControllerEvent MoneyAmountChangedInc, MoneyAmountChanged;
 
     public ShopTrigger market = null;
 
@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour
 
     public ProgressBar progressBar = null;
 
-    public EOLCanvasController EOLCanvasController=null;
+    public EOLCanvasController EOLCanvasController = null;
 
 
 
@@ -74,7 +74,7 @@ public class GameController : MonoBehaviour
     {
         //playerController.guidingIndicator.SetTargetAndEnable();
         progressBar.SetMaxProgress(coinsToCompleteLevel);
-        CoinAmountChanged += UpdateProgressOnCoinAmountChanged;
+        MoneyAmountChangedInc += UpdateProgressOnCoinAmountChanged;
     }
 
     private void UpdateProgressOnCoinAmountChanged()
@@ -82,8 +82,8 @@ public class GameController : MonoBehaviour
         if (coinAmount >= coinsToCompleteLevel)
         {
             progressBar.SetProgress(coinsToCompleteLevel);
-            EOLCanvasController.GetComponent<Canvas>().enabled=true;
-          //  Debug.Log("Activate button to go to next level");
+            EOLCanvasController.GetComponent<Canvas>().enabled = true;
+            //  Debug.Log("Activate button to go to next level");
         }
         else
         {
@@ -101,7 +101,7 @@ public class GameController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            AddCoins(20);
+            AddMoneyIncrementally(20);
         }
 
 #endif
@@ -109,7 +109,7 @@ public class GameController : MonoBehaviour
 
         if (isRaycastActive)
         {
-            
+
             if (Input.GetMouseButton(0))
             {
                 ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -118,7 +118,7 @@ public class GameController : MonoBehaviour
                     hitObject = hit.collider.gameObject;
                     if (hitObject.CompareTag("TileHitBox"))         //hitObject is a reference to HitBox here
                     {
-                        if(IsOverRaycastBlockingUI()) return;   //this condition is here, because it is checking on a lot of things and would cause poorer performance if put higher in the update loop
+                        if (IsOverRaycastBlockingUI()) return;   //this condition is here, because it is checking on a lot of things and would cause poorer performance if put higher in the update loop
                         TileHitBox tileHitBox = hitObject.GetComponent<TileHitBox>();
                         tileHitBox.OnHit();
                     }
@@ -131,16 +131,22 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void SetCoinAmount(int newCoinAmount)
+    public void SetCoinAmountIncerementally(int newCoinAmount)
     {
         coinAmount = newCoinAmount;
-        CoinAmountChanged?.Invoke();
+        MoneyAmountChangedInc?.Invoke();
     }
 
-    public void AddCoins(int coinAmountToAdd)
+    public void AddMoneyIncrementally(int coinAmountToAdd)
     {
         coinAmount += coinAmountToAdd;
-        CoinAmountChanged?.Invoke();
+        MoneyAmountChangedInc?.Invoke();
+    }
+
+    public void AddMoney(int coinAmountToAdd)
+    {
+        coinAmount += coinAmountToAdd;
+        MoneyAmountChanged?.Invoke();
     }
 
     public void SetTileAction(TileAction newTileAction)

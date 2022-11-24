@@ -41,7 +41,7 @@ public class TilesPlantTrigger : MonoBehaviour
         {
             playerController.HasBucketOfWater=false;
             tilesManager.SetTilesWet();
-            Debug.Log("Bucket emptied");
+//            Debug.Log("Bucket emptied");
         }
 
     }

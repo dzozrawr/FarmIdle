@@ -51,6 +51,7 @@ MonoBehaviour:
   coinWorth: 5
   timeNeededToGrow: 2
   marketScaleBy: 0.75
+  readyForHarvestParticles: {fileID: 0}
   tweenForPlanting: {fileID: 7397395586688789005}
   models:
   - {fileID: 490028006898852746}
@@ -108,6 +109,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e2b9ae5bde3a1024ab49e50e69312e76, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c02d58df2e12840469cb8b700a544609, type: 2}
     - target: {fileID: -7511558181221131132, guid: e2b9ae5bde3a1024ab49e50e69312e76, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 

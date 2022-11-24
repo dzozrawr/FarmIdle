@@ -51,6 +51,7 @@ MonoBehaviour:
   coinWorth: 5
   timeNeededToGrow: 2
   marketScaleBy: 0.75
+  readyForHarvestParticles: {fileID: 0}
   tweenForPlanting: {fileID: 6350875436476955369}
   models:
   - {fileID: 5961939881740886248}
@@ -661,6 +662,10 @@ PrefabInstance:
     - target: {fileID: 6001302758510454465, guid: 4d7856462dbb2274788be876f93659df, type: 3}
       propertyPath: m_Name
       value: CoinUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902137741591167185, guid: 4d7856462dbb2274788be876f93659df, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d7856462dbb2274788be876f93659df, type: 3}
