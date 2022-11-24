@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public GameObject backpackModel = null;
     public GameObject backpackFullModel = null;
 
+    public GameObject bucketModel=null;
+
     private Vector3 moveVector = Vector3.zero;
 
     //  private Vector3 prevMoveVector = Vector3.zero;
@@ -87,35 +89,16 @@ public class PlayerController : MonoBehaviour
             if(playerAnimator.GetBool("isWalking")) playerAnimator.SetBool("isWalking",false);
             playerAnimator.SetBool("isBucketWalking", joystick.Direction.magnitude > 0);
         }
-        /* 
-                if ((prevJoystickMagnitude == 0f) && (joystick.Direction.magnitude > 0f))
-                {
-                    playerAnimator.SetTrigger("Walk");
-                }
 
-                if ((prevJoystickMagnitude > 0f) && (joystick.Direction.magnitude == 0f))
-                {
-                    playerAnimator.SetTrigger("Idle");
-                } */
-
-        /*         if ((prevMoveVector == Vector3.zero) && (moveVector != Vector3.zero))
-                {
-                    playerAnimator.SetTrigger("Walk");
-                }
-
-                if ((prevMoveVector != Vector3.zero) && (moveVector == Vector3.zero))
-                {
-                    playerAnimator.SetTrigger("Idle");
-                } */
-
-        /*         if (playerAnimator.GetBool("isWalking") != (joystick.Direction.magnitude > 0))
-                {
-                    playerAnimator.SetBool("isWalking", joystick.Direction.magnitude > 0);
-                } */
 
         //Debug.Log(joystick.Direction.magnitude);
         //}
         prevJoystickMagnitude = joystick.Direction.magnitude;
+    }
+
+    public void SetBucketExistence(bool isEnabled){
+        hasBucketOfWater=isEnabled;
+        bucketModel.SetActive(isEnabled);
     }
 
     public void SetJoystickEnabledAndVisible(bool isEnabled)
