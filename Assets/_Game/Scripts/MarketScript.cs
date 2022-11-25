@@ -9,13 +9,13 @@ public class MarketScript : MonoBehaviour
 
     public Collider colliderException = null;
 
-    public TMP_Text priceText=null;
+    public TMP_Text priceText = null;
 
-    public GameObject[] marketModels=null;
+    public GameObject[] marketModels = null;
 
     private static int maxLvl = 1;
 
-    private int lvl = 0;
+    private static int lvl = 0;
     private int lvlUpPrice = 30;
 
     private GameController gameController = null;
@@ -25,7 +25,12 @@ public class MarketScript : MonoBehaviour
     void Start()
     {
         gameController = GameController.Instance;
-        priceText.text=lvlUpPrice+"";
+        priceText.text = lvlUpPrice + "";
+
+        if (lvl > 0)
+        {
+            SetMarketToLevel(lvl);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -40,6 +45,23 @@ public class MarketScript : MonoBehaviour
         canvasForLvlUp.enabled = false;
     }
 
+    public void SetMarketToLevel(int level)
+    {
+        switch (lvl)
+        {
+            case 1:
+                marketModels[0].GetComponentInChildren<Collider>().enabled = false;
+                marketModels[1].GetComponentInChildren<Collider>().enabled = false;
+
+                marketModels[0].SetActive(false);
+                marketModels[1].SetActive(true);
+
+                marketModels[1].GetComponentInChildren<Collider>().enabled = true;
+                break;
+        }
+        canvasForLvlUp.enabled = false;
+    }
+
     public void LevelUp()
     {
         if (lvlUpPrice > GameController.CoinAmount) return;
@@ -49,32 +71,33 @@ public class MarketScript : MonoBehaviour
         switch (lvl)
         {
             case 0:
-                marketModels[0].GetComponentInChildren<Collider>().enabled=false;
-                marketModels[1].GetComponentInChildren<Collider>().enabled=false;
+                marketModels[0].GetComponentInChildren<Collider>().enabled = false;
+                marketModels[1].GetComponentInChildren<Collider>().enabled = false;
 
-                 SoundManager.Instance.PlaySound("upgradeSound",0.25f);
+                SoundManager.Instance.PlaySound("upgradeSound", 0.25f);
 
-                Aezakmi.Tweens.Scale scaleOfMarket0=marketModels[0].GetComponent<Aezakmi.Tweens.Scale>();
-                scaleOfMarket0.AddDelegateOnComplete(()=>{
+                Aezakmi.Tweens.Scale scaleOfMarket0 = marketModels[0].GetComponent<Aezakmi.Tweens.Scale>();
+                scaleOfMarket0.AddDelegateOnComplete(() =>
+                {
                     marketModels[0].SetActive(false);
-                   
+
                 });
                 scaleOfMarket0.PlayTween();
 
 
-                Aezakmi.Tweens.Scale scaleOfMarket1=marketModels[1].GetComponent<Aezakmi.Tweens.Scale>();
-                marketModels[1].transform.localScale=Vector3.zero;
+                Aezakmi.Tweens.Scale scaleOfMarket1 = marketModels[1].GetComponent<Aezakmi.Tweens.Scale>();
+                marketModels[1].transform.localScale = Vector3.zero;
                 marketModels[1].SetActive(true);
                 scaleOfMarket1.PlayTween();
-                scaleOfMarket1.AddDelegateOnComplete(()=>{marketModels[1].GetComponentInChildren<Collider>().enabled=true;});
+                scaleOfMarket1.AddDelegateOnComplete(() => { marketModels[1].GetComponentInChildren<Collider>().enabled = true; });
                 //scale out the lvl1 market model and scale in the lvl2 market model (maybe disable the selling functionality meanwhile)
                 lvl++;
                 break;
         }
-      //  moneyWorldUI.SetMoneyAmount(moneyIncrement);
-       // endlessRotateOfBlades.rotSpeed *= 2f;
-    //    lvlUpPrice *= 2;
-     //   priceText.text = lvlUpPrice + "";
+        //  moneyWorldUI.SetMoneyAmount(moneyIncrement);
+        // endlessRotateOfBlades.rotSpeed *= 2f;
+        //    lvlUpPrice *= 2;
+        //   priceText.text = lvlUpPrice + "";
         canvasForLvlUp.enabled = false;
 
         //set UI to show new price
