@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -83,7 +84,7 @@ public class GameController : MonoBehaviour
         if (coinAmount >= coinsToCompleteLevel)
         {
             progressBar.SetProgress(coinsToCompleteLevel);
-            progressBar.OnProgressBarFilled+=ShowEOLCanvas;
+            progressBar.OnProgressBarFilled += ShowEOLCanvas;
             //EOLCanvasController.GetComponent<Canvas>().enabled = true;
             //  Debug.Log("Activate button to go to next level");
         }
@@ -94,9 +95,10 @@ public class GameController : MonoBehaviour
 
     }
 
-    private void ShowEOLCanvas(){
-        EOLCanvasController.GetComponent<Canvas>().enabled=true;
-        progressBar.OnProgressBarFilled-=ShowEOLCanvas;
+    private void ShowEOLCanvas()
+    {
+        EOLCanvasController.GetComponent<Canvas>().enabled = true;
+        progressBar.OnProgressBarFilled -= ShowEOLCanvas;
     }
 
     // Update is called once per frame
@@ -109,6 +111,12 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             AddMoneyIncrementally(20);
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
+            SceneManager.LoadScene(nextSceneIndex);
         }
 
 #endif
