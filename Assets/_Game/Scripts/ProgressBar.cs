@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,10 @@ public class ProgressBar : MonoBehaviour
 
     private float targetValue = 0f;
     private float fillSpeed = 5f;
+
+    private float prevSliderValue=-1f;
+
+    public event Action OnProgressBarFilled;
 
 
     private void Awake()
@@ -41,8 +46,13 @@ public class ProgressBar : MonoBehaviour
             SetProgress(targetValue + 1);
         }
 #endif
-
+        prevSliderValue=slider.value;
         slider.value = Mathf.Lerp(slider.value, targetValue, fillSpeed * Time.deltaTime);
+
+        if(((slider.value-prevSliderValue)<0.002f)&&(targetValue==slider.maxValue)){
+            OnProgressBarFilled?.Invoke();
+            this.enabled=false;
+        }
 
         //slider.value = Mathf.Lerp();
     }

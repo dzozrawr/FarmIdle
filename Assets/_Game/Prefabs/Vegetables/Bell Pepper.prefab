@@ -994,7 +994,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _scaleType: 0
-  _scale: {x: 0.15, y: 0.15, z: 0.15}
+  _scale: {x: 0.33056024, y: 0.33056024, z: 0.33056024}
   _amount: {x: 0, y: 0, z: 0}
 --- !u!1001 &8880147743095485926
 PrefabInstance:

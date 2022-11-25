@@ -54,6 +54,7 @@ public class GameController : MonoBehaviour
     private PlantController curSelectedPlant = null;
 
     private TileAction curTileAction = TileAction.None;
+
     public TileAction CurTileAction { get => curTileAction; }
     public PlantController CurSelectedPlant { get => curSelectedPlant; set => curSelectedPlant = value; }
     public bool IsRaycastActive { get => isRaycastActive; set => isRaycastActive = value; }
@@ -82,7 +83,8 @@ public class GameController : MonoBehaviour
         if (coinAmount >= coinsToCompleteLevel)
         {
             progressBar.SetProgress(coinsToCompleteLevel);
-            EOLCanvasController.GetComponent<Canvas>().enabled = true;
+            progressBar.OnProgressBarFilled+=ShowEOLCanvas;
+            //EOLCanvasController.GetComponent<Canvas>().enabled = true;
             //  Debug.Log("Activate button to go to next level");
         }
         else
@@ -90,6 +92,11 @@ public class GameController : MonoBehaviour
             progressBar.SetProgress(coinAmount);
         }
 
+    }
+
+    private void ShowEOLCanvas(){
+        EOLCanvasController.GetComponent<Canvas>().enabled=true;
+        progressBar.OnProgressBarFilled-=ShowEOLCanvas;
     }
 
     // Update is called once per frame
