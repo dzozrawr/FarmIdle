@@ -37,7 +37,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource defaultAudioSrc;
     //public AudioSource backgroundMusicAudioSrc;
 
-    private AudioClip plantingSound, harvestingSound, sellingSound, coinClaimSound;
+    private AudioClip plantingSound, harvestingSound, sellingSound, coinClaimSound, bucketFillSound, wateringSound, upgradeSound;
 
     private void Awake()
     {
@@ -60,6 +60,9 @@ public class SoundManager : MonoBehaviour
         harvestingSound = Resources.Load<AudioClip>("harvestingSound");
         sellingSound = Resources.Load<AudioClip>("sellingSound");
         coinClaimSound = Resources.Load<AudioClip>("coinClaim");
+        bucketFillSound = Resources.Load<AudioClip>("bucketFillSound");
+        wateringSound = Resources.Load<AudioClip>("wateringSound");
+        upgradeSound = Resources.Load<AudioClip>("upgradeSound");
     }
 
 
@@ -83,22 +86,25 @@ public class SoundManager : MonoBehaviour
         switch (clip)
         {
             case "plantingSound":
-
-                audioSrc.PlayOneShot(plantingSound);
+                audioSrc.PlayOneShot(plantingSound, volume);
                 break;
             case "harvestingSound":
-
-                audioSrc.PlayOneShot(harvestingSound);
+                audioSrc.PlayOneShot(harvestingSound, volume);
                 break;
             case "sellingSound":
-
-                audioSrc.PlayOneShot(sellingSound);
+                audioSrc.PlayOneShot(sellingSound, volume);
                 break;
             case "coinClaim":
-                //audioSrc.isPlaying
-                //if(audioSrc.clip==coinClaimSound) audioSrc.
-                PlaySoundWCooldown(coinClaimSound,1,0.05f);
-
+                PlaySoundWCooldown(coinClaimSound, 1, 0.05f);
+                break;
+            case "bucketFillSound":
+                audioSrc.PlayOneShot(bucketFillSound, volume);
+                break;
+            case "wateringSound":
+                audioSrc.PlayOneShot(wateringSound, volume);
+                break;
+            case "upgradeSound":
+                audioSrc.PlayOneShot(upgradeSound, volume);
                 break;
         }
     }
@@ -146,19 +152,19 @@ public class SoundManager : MonoBehaviour
         audioSrc.pitch = defaultPitch;
     }
 
-    public void PlaySoundWCooldown(AudioClip clip, float volume = 1f, float cooldown=0.1f)
+    public void PlaySoundWCooldown(AudioClip clip, float volume = 1f, float cooldown = 0.1f)
     {
-       // audioSrc.pitch += PitchStep;
+        // audioSrc.pitch += PitchStep;
         if (cooldownCoroutine == null)
         {
-            audioSrc.PlayOneShot(clip,volume);
-            cooldownCoroutine= StartCoroutine(ResetCooldownCoroutine(cooldown));
+            audioSrc.PlayOneShot(clip, volume);
+            cooldownCoroutine = StartCoroutine(ResetCooldownCoroutine(cooldown));
         }
         //coroutine = StartCoroutine(ResetPitchCoroutine());
-       // Invoke(nameof(Reset),0.5f);
+        // Invoke(nameof(Reset),0.5f);
     }
 
-    IEnumerator ResetCooldownCoroutine( float coolDown)
+    IEnumerator ResetCooldownCoroutine(float coolDown)
     {
         yield return new WaitForSeconds(coolDown);
         cooldownCoroutine = null;

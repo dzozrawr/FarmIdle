@@ -137,6 +137,7 @@ public class WindmillScript : MonoBehaviour
             case 2:
                 moneyIncrement = 4;
                 Aezakmi.Tweens.Scale scaleOfWindmill0 = windmillModels[0].GetComponent<Aezakmi.Tweens.Scale>();
+                SoundManager.Instance.PlaySound("upgradeSound",0.25f);
                 scaleOfWindmill0.AddDelegateOnComplete(() =>
                 {
                     windmillModels[0].SetActive(false);
@@ -147,6 +148,8 @@ public class WindmillScript : MonoBehaviour
                 Aezakmi.Tweens.Scale scaleOfWindmill1 = windmillModels[1].GetComponent<Aezakmi.Tweens.Scale>();
                 windmillModels[1].transform.localScale = Vector3.zero;
                 windmillModels[1].SetActive(true);
+
+
 
                 EndlessRotate endlessRotateOfBlades1 = windmillModels[1].GetComponentInChildren<EndlessRotate>();
                 endlessRotateOfBlades1.rotSpeed = endlessRotateOfBlades.rotSpeed;

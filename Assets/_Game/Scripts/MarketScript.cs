@@ -52,9 +52,12 @@ public class MarketScript : MonoBehaviour
                 marketModels[0].GetComponentInChildren<Collider>().enabled=false;
                 marketModels[1].GetComponentInChildren<Collider>().enabled=false;
 
+                 SoundManager.Instance.PlaySound("upgradeSound",0.25f);
+
                 Aezakmi.Tweens.Scale scaleOfMarket0=marketModels[0].GetComponent<Aezakmi.Tweens.Scale>();
                 scaleOfMarket0.AddDelegateOnComplete(()=>{
                     marketModels[0].SetActive(false);
+                   
                 });
                 scaleOfMarket0.PlayTween();
 
