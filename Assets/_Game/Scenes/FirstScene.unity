@@ -4844,6 +4844,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8984428382044823361, guid: 49b60b219f5707242820eda6de5d2696, type: 3}
   m_PrefabInstance: {fileID: 1037989964}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1038162502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3217720731194166512, guid: 731556b98856f964daed79bed08964e2, type: 3}
+  m_PrefabInstance: {fileID: 577959678}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a51444cd5bb3543b059a68d32ab3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1065999008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6384,7 +6395,7 @@ MonoBehaviour:
   playerController: {fileID: 263518442}
   inventoryCanvas: {fileID: 5874693730454400225}
   inventoryCanvasController: {fileID: 5874693730454400240}
-  market: {fileID: 0}
+  market: {fileID: 1038162502}
   plantTriggerCircles:
   - {fileID: 1002207935}
   coinsToCompleteLevel: 1000
