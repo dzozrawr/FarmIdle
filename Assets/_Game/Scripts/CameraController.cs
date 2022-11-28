@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 
     public enum CameraPhase
     {
-        Intro, PlayerPicking, ContestantsStart, ContestantsElimination,  BeforeMiniGame
+        Intro, PlayerPicking, ContestantsStart, ContestantsElimination, BeforeMiniGame
     }
 
     public Dictionary<CameraPhase, CinemachineVirtualCamera> camerasDictionary = new Dictionary<CameraPhase, CinemachineVirtualCamera>();
@@ -40,24 +40,30 @@ public class CameraController : MonoBehaviour
         }
         instance = this;
 
-/*         int curCamPriority = highestCameraPriority;
-        foreach (var item in camerasList)
-        {
-            curCamPriority = item.cam.GetComponent<CinemachineVirtualCamera>().Priority;
-            if (curCamPriority > highestCameraPriority)
-            {
-                highestCameraPriority = curCamPriority;
-            }
-            camerasDictionary.Add(item.phase, item.cam.GetComponent<CinemachineVirtualCamera>());
-        } */
+        /*         int curCamPriority = highestCameraPriority;
+                foreach (var item in camerasList)
+                {
+                    curCamPriority = item.cam.GetComponent<CinemachineVirtualCamera>().Priority;
+                    if (curCamPriority > highestCameraPriority)
+                    {
+                        highestCameraPriority = curCamPriority;
+                    }
+                    camerasDictionary.Add(item.phase, item.cam.GetComponent<CinemachineVirtualCamera>());
+                } */
 
-       
+
         //here should be a loop going through the cameras determining what is the highest priority number
     }
     // Start is called before the first frame update
     void Start()
     {
-         highestCameraPriority=GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority;
+        Invoke(nameof(FindHighestCameraPriority), 0.1f);
+//        highestCameraPriority = GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority;
+    }
+
+    private void FindHighestCameraPriority()
+    {
+        highestCameraPriority = GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority;
     }
 
     public void TransitionToCMVirtualCamera(CameraPhase phase)
