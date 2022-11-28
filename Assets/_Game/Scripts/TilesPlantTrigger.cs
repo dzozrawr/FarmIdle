@@ -42,6 +42,7 @@ public class TilesPlantTrigger : MonoBehaviour
             playerController.SetBucketExistence(false);
             //playerController.HasBucketOfWater=false;
             tilesManager.SetTilesWet();
+            SoundManager.Instance.PlaySound("wateringSound");
 //            Debug.Log("Bucket emptied");
         }
 

@@ -28,6 +28,7 @@ public class WellScript : MonoBehaviour
              //   wellModel.transform.localScale = new Vector3(startingScale, startingScale, startingScale);
 
                 scaleEffectTween.PlayTween();
+                SoundManager.Instance.PlaySound("bucketFillSound");
                 // tweenForPlanting.AddDelegateOnComplete(Grow);
                 //                Debug.Log("Bucket filled!");
                 //trigger animation, set bucket enabled and whatnot

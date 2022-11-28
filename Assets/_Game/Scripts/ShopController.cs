@@ -15,7 +15,7 @@ public class ShopController : MonoBehaviour
         public int price;
     }
 
-    public Dictionary<PlantInfo.PlantType, ShopItemInfo> shopItemInfos = null;
+    public static Dictionary<PlantInfo.PlantType, ShopItemInfo> shopItemInfos = null;
     public Canvas canvas = null;
 
     public ShopItem[] shopItems = null;
@@ -46,13 +46,16 @@ public class ShopController : MonoBehaviour
 
                 shopItemInfos.Add(item.type, shopItemInfo);
             }
+        }else{
+            foreach(ShopItem item in shopItems){
+                if(!shopItemInfos[item.type].isLocked){
+                    item.SetBoughtVisual();
+                    ShopItemBoughtEvent?.Invoke(item.type);
+                }
+            }
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
 
     public ShopItemInfo FindShopItemInfoByType(PlantInfo.PlantType type)
     {

@@ -21,6 +21,8 @@ public abstract class PlantController : MonoBehaviour
 
     public ParticleSystem readyForHarvestParticles=null;
 
+    public ParticleSystem harvestParticles=null;
+
     public delegate void Notify();
 
     public event Notify PlantGrown;
@@ -91,6 +93,12 @@ public abstract class PlantController : MonoBehaviour
             Destroy(gameObject);
         });
         OnHarvestSpecific();
+        if(harvestParticles!=null){
+            Vector3 localScale= harvestParticles.transform.localScale;
+            harvestParticles.transform.SetParent(null);
+            harvestParticles.transform.localScale=localScale;
+            harvestParticles.Play(); //play harvest particles
+        } 
         PlantHarvested?.Invoke(type);
     }
 
