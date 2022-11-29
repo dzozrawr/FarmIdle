@@ -56,9 +56,13 @@ public class GameController : MonoBehaviour
 
     private TileAction curTileAction = TileAction.None;
 
+    private bool isInPlantHarvestMode=false;
+        public bool IsInPlantHarvestMode { get => isInPlantHarvestMode; set => isInPlantHarvestMode = value; }
+
     public TileAction CurTileAction { get => curTileAction; }
     public PlantController CurSelectedPlant { get => curSelectedPlant; set => curSelectedPlant = value; }
     public bool IsRaycastActive { get => isRaycastActive; set => isRaycastActive = value; }
+
 
     private void Awake()
     {

@@ -21,6 +21,7 @@ public class TileLocker : MonoBehaviour
     private List<TileController> tileControllers = null;
 
     private GameController gameController = null;
+    private CameraController cameraController= null;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class TileLocker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+         cameraController = CameraController.Instance;
         if (isLocked)
         {
             lockedUI.gameObject.SetActive(true);
@@ -62,6 +64,9 @@ public class TileLocker : MonoBehaviour
 
         if(newCameraView!=null){
             tilesManager.plantCamera=newCameraView;
+            if(tilesManager.IsInPlantHarvestMode){
+               cameraController.TransitionToCMVirtualCamera(tilesManager.plantCamera);
+            }
         }
     }
 }

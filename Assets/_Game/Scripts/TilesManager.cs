@@ -12,7 +12,7 @@ public class TilesManager : MonoBehaviour
     public GameObject[] soilModels = null;
 
     private static string hexCodeOfColorOfWetSoil = "ABABAB";
-    private static float soilDryingDuration=2f;
+    private static float soilDryingDuration = 2f;
     private Color colorOfWetSoil; //ABABAB
 
     private Color defaultSoilColor;
@@ -21,6 +21,9 @@ public class TilesManager : MonoBehaviour
     private Coroutine drySoilCoroutine = null;
 
     private GameController gameController = null;
+
+    private bool isInPlantHarvestMode = false;
+    public bool IsInPlantHarvestMode { get => isInPlantHarvestMode; set => isInPlantHarvestMode = value; }
 
     private void Awake()
     {

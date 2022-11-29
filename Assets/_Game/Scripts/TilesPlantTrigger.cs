@@ -36,6 +36,7 @@ public class TilesPlantTrigger : MonoBehaviour
             CheckForCameraBlending.onCameraBlendFinished += OnCameraTransitionToPlantsFinished;
 
             gameController.playerController.SetJoystickEnabledAndVisible(false);
+            tilesManager.IsInPlantHarvestMode=true;
         }
         else
         {
@@ -70,6 +71,8 @@ public class TilesPlantTrigger : MonoBehaviour
         gameController.inventoryCanvas.enabled = false;
         cameraController.TransitionToCMVirtualCamera(gameController.playerController.followingCamera);
         CheckForCameraBlending.onCameraBlendFinished += OnCameraTransitionToPlayerFinished;
+
+        tilesManager.IsInPlantHarvestMode=false;
 
 
         checkmarkButton.onClick.RemoveAllListeners();
