@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6341180004958280155}
   - component: {fileID: 7856733658523733234}
   - component: {fileID: 6980054529045002397}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PriceImg
-  m_TagString: Untagged
+  m_TagString: UIRayBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,9 +87,9 @@ GameObject:
   - component: {fileID: 1263471773537049149}
   - component: {fileID: 8763955101751680539}
   - component: {fileID: 445905380337284360}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ShopItem
-  m_TagString: Untagged
+  m_TagString: UIRayBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,9 +196,9 @@ GameObject:
   - component: {fileID: 1095864985557283037}
   - component: {fileID: 8679273772994062844}
   - component: {fileID: 2803460598678900822}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ProductImg
-  m_TagString: Untagged
+  m_TagString: UIRayBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,9 +271,9 @@ GameObject:
   - component: {fileID: 8750526783367117294}
   - component: {fileID: 7133301573136880325}
   - component: {fileID: 6911756926809575508}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: UIRayBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -405,9 +405,9 @@ GameObject:
   - component: {fileID: 6146884861505112732}
   - component: {fileID: 808261447416388157}
   - component: {fileID: 672697307748224171}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BackgroundImage
-  m_TagString: Untagged
+  m_TagString: UIRayBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

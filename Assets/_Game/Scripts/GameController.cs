@@ -56,9 +56,6 @@ public class GameController : MonoBehaviour
 
     private TileAction curTileAction = TileAction.None;
 
-    private bool isInPlantHarvestMode=false;
-        public bool IsInPlantHarvestMode { get => isInPlantHarvestMode; set => isInPlantHarvestMode = value; }
-
     public TileAction CurTileAction { get => curTileAction; }
     public PlantController CurSelectedPlant { get => curSelectedPlant; set => curSelectedPlant = value; }
     public bool IsRaycastActive { get => isRaycastActive; set => isRaycastActive = value; }
@@ -131,13 +128,14 @@ public class GameController : MonoBehaviour
 
             if (Input.GetMouseButton(0))
             {
+                if (IsOverRaycastBlockingUI()) return;   //this condition is here, because it is checking on a lot of things and would cause poorer performance if put higher in the update loop
                 ray = mainCamera.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit))
                 {
                     hitObject = hit.collider.gameObject;
                     if (hitObject.CompareTag("TileHitBox"))         //hitObject is a reference to HitBox here
                     {
-                        if (IsOverRaycastBlockingUI()) return;   //this condition is here, because it is checking on a lot of things and would cause poorer performance if put higher in the update loop
+                        //if (IsOverRaycastBlockingUI()) return;   //this condition is here, because it is checking on a lot of things and would cause poorer performance if put higher in the update loop
                         TileHitBox tileHitBox = hitObject.GetComponent<TileHitBox>();
                         tileHitBox.OnHit();
                     }

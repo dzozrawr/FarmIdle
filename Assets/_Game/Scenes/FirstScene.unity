@@ -9708,6 +9708,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.07252532, y: 0.0052638473, z: 0.048772793}
   m_Center: {x: -0.033774696, y: -0.001219146, z: 0.024386397}
+--- !u!114 &1389905280 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8846870322854268439, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+  m_PrefabInstance: {fileID: 6975257154463955665}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7476eda0d7cc7514090b18a6ce132142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1413967923
 GameObject:
   m_ObjectHideFlags: 0
@@ -10831,6 +10842,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8984428382044823361, guid: 49b60b219f5707242820eda6de5d2696, type: 3}
   m_PrefabInstance: {fileID: 1567607090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1570914136 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7559970767758116608, guid: 056b45ffba752e64bbce5d5c98e5efff, type: 3}
+  m_PrefabInstance: {fileID: 7559970766903744975}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1575648500
 PrefabInstance:
@@ -14016,17 +14032,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8984428382044823361, guid: 49b60b219f5707242820eda6de5d2696, type: 3}
   m_PrefabInstance: {fileID: 1938201604}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1965940433 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7559970767758116638, guid: 056b45ffba752e64bbce5d5c98e5efff, type: 3}
-  m_PrefabInstance: {fileID: 7559970766903744975}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d16e446e8a71694ebbfe5bc37e8e8b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1969468809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ce846399e655de1448e8f7114991f924, type: 3}
@@ -15833,27 +15838,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 801201169661303392, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 801201169661303392, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1965940433}
+      objectReference: {fileID: 1389905280}
     - target: {fileID: 801201169661303392, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 801201169661303392, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetCanvasVisible
+      value: OnShopButtonClick
       objectReference: {fileID: 0}
     - target: {fileID: 801201169661303392, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ShopCanvasController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 801201169661303392, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
+      value: GameCanvasController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 801201169661303392, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -16171,6 +16172,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -41.300003
       objectReference: {fileID: 0}
+    - target: {fileID: 8846870322854268439, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: shopCanvas
+      value: 
+      objectReference: {fileID: 1570914136}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
 --- !u!114 &6975257154463955666 stripped

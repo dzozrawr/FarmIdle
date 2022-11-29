@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8494098699641285341}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MainShopElements
-  m_TagString: Untagged
+  m_TagString: UIRayBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,9 +48,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7158168714724153941}
   - component: {fileID: 5898917560416432261}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: UIRayBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,9 +115,9 @@ GameObject:
   - component: {fileID: 3467585237449069031}
   - component: {fileID: 3449096068185788564}
   - component: {fileID: 6777855977381867350}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ShopText
-  m_TagString: Untagged
+  m_TagString: UIRayBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 7559970766412838091}
   m_Layer: 5
   m_Name: BlurBackground
-  m_TagString: Untagged
+  m_TagString: UIRayBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 7559970767124654402}
   m_Layer: 5
   m_Name: ShopBackground
-  m_TagString: Untagged
+  m_TagString: UIRayBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -536,7 +536,7 @@ GameObject:
   - component: {fileID: 7559970768068950307}
   m_Layer: 5
   m_Name: BackButton
-  m_TagString: Untagged
+  m_TagString: UIRayBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -643,9 +643,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7559970767758116638}
-        m_TargetAssemblyTypeName: ShopCanvasController, Assembly-CSharp
-        m_MethodName: SetCanvasVisible
-        m_Mode: 6
+        m_TargetAssemblyTypeName: ShopController, Assembly-CSharp
+        m_MethodName: OnBackButtonClicked
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -757,13 +757,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2556719095522148158, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_Name
       value: ShopItem (3)
       objectReference: {fileID: 0}
     - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3153727145813471835, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914618198669121742, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743765317476979786, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
@@ -887,6 +907,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2556719095522148158, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2803460598678900822, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -898,6 +922,22 @@ PrefabInstance:
     - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_Name
       value: ShopItem (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3153727145813471835, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914618198669121742, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743765317476979786, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6911756926809575508, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_text
@@ -1040,6 +1080,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2556719095522148158, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2803460598678900822, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1051,6 +1095,22 @@ PrefabInstance:
     - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_Name
       value: ShopItem (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3153727145813471835, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914618198669121742, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743765317476979786, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6911756926809575508, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_text
@@ -1193,6 +1253,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2556719095522148158, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2803460598678900822, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1206,8 +1270,24 @@ PrefabInstance:
       value: ShopItem
       objectReference: {fileID: 0}
     - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3153727145813471835, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914618198669121742, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743765317476979786, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6911756926809575508, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_text
@@ -1338,13 +1418,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2556719095522148158, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_Name
       value: ShopItem (5)
       objectReference: {fileID: 0}
     - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3153727145813471835, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914618198669121742, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743765317476979786, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
@@ -1456,13 +1556,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2556719095522148158, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_Name
       value: ShopItem (4)
       objectReference: {fileID: 0}
     - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105420343946359236, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3153727145813471835, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914618198669121742, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743765317476979786, guid: 40c5217e2e5856942a0493648230b53e, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40c5217e2e5856942a0493648230b53e, type: 3}

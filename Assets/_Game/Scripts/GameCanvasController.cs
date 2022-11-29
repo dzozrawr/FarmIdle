@@ -9,6 +9,8 @@ public class GameCanvasController : MonoBehaviour
 
     public AnimationCurve moneyEarnEase;
 
+    public Canvas shopCanvas=null;
+
     private GameController gameController = null;
     private Coroutine addMoneyInSequenceCoroutine = null;
     // Start is called before the first frame update
@@ -66,5 +68,10 @@ public class GameCanvasController : MonoBehaviour
         }
 
         addMoneyInSequenceCoroutine = null;
+    }
+
+    public void OnShopButtonClick(){
+        shopCanvas.enabled=true;
+        gameController.IsRaycastActive=false;
     }
 }

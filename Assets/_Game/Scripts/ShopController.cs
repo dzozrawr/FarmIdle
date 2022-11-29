@@ -24,6 +24,7 @@ public class ShopController : MonoBehaviour
 
     public event ShopItemBoughtHandler ShopItemBoughtEvent;
 
+    private GameController gameController=null;
 
     private void Awake()
     {
@@ -54,6 +55,15 @@ public class ShopController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void Start() {
+        gameController=GameController.Instance;
+    }
+
+    public void OnBackButtonClicked(){
+        canvas.enabled=false;
+        gameController.IsRaycastActive=true;
     }
 
 
