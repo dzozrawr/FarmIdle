@@ -11,6 +11,8 @@ public class GameCanvasController : MonoBehaviour
 
     public Canvas shopCanvas=null;
 
+    public TMP_Text progressBarEndValueText=null;
+
     private GameController gameController = null;
     private Coroutine addMoneyInSequenceCoroutine = null;
     // Start is called before the first frame update
@@ -18,8 +20,13 @@ public class GameCanvasController : MonoBehaviour
     {
         gameController = GameController.Instance;
 
+        progressBarEndValueText.text=gameController.coinsToCompleteLevel+"";
+
+        coinAmountTxt.text = GameController.CoinAmount + "";
         gameController.MoneyAmountChangedInc += OnMoneyAmountChangedIncrementally;
         gameController.MoneyAmountChanged += OnMoneyAmountChanged;
+
+        
     }
     public void OnMoneyAmountChanged()
     {

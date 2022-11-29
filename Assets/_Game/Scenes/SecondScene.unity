@@ -13741,6 +13741,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8801497346897870646}
     - target: {fileID: 4561699680060391873, guid: 5706f59f1e571be4dbe139c84f894bc2, type: 3}
+      propertyPath: coinsToCompleteLevel
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561699680060391873, guid: 5706f59f1e571be4dbe139c84f894bc2, type: 3}
       propertyPath: inventoryCanvasController
       value: 
       objectReference: {fileID: 5874693730454400240}

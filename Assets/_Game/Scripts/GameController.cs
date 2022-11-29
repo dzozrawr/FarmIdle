@@ -56,6 +56,8 @@ public class GameController : MonoBehaviour
 
     private TileAction curTileAction = TileAction.None;
 
+    private int moneyEarnedInLevel = 0;
+
     public TileAction CurTileAction { get => curTileAction; }
     public PlantController CurSelectedPlant { get => curSelectedPlant; set => curSelectedPlant = value; }
     public bool IsRaycastActive { get => isRaycastActive; set => isRaycastActive = value; }
@@ -82,7 +84,7 @@ public class GameController : MonoBehaviour
 
     private void UpdateProgressOnCoinAmountChanged()
     {
-        if (coinAmount >= coinsToCompleteLevel)
+        if (moneyEarnedInLevel >= coinsToCompleteLevel)
         {
             progressBar.SetProgress(coinsToCompleteLevel);
             progressBar.OnProgressBarFilled += ShowEOLCanvas;
@@ -91,7 +93,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            progressBar.SetProgress(coinAmount);
+            progressBar.SetProgress(moneyEarnedInLevel);
         }
 
     }
@@ -157,12 +159,14 @@ public class GameController : MonoBehaviour
     public void AddMoneyIncrementally(int coinAmountToAdd)
     {
         coinAmount += coinAmountToAdd;
+        if ((moneyEarnedInLevel + coinAmountToAdd) < 0) moneyEarnedInLevel = 0; else moneyEarnedInLevel += coinAmountToAdd;
         MoneyAmountChangedInc?.Invoke();
     }
 
     public void AddMoney(int coinAmountToAdd)
     {
         coinAmount += coinAmountToAdd;
+        if ((moneyEarnedInLevel + coinAmountToAdd) < 0) moneyEarnedInLevel = 0; else moneyEarnedInLevel += coinAmountToAdd;
         MoneyAmountChanged?.Invoke();
     }
 
