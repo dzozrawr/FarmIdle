@@ -14050,6 +14050,58 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 925469036598285686, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: orders.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 925469036598285686, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: orders.Array.data[0].quantity
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 925469036598285686, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: orders.Array.data[1].quantity
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 925469036598285686, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: orders.Array.data[2].quantity
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 925469036598285686, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: orders.Array.data[0].plantType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 925469036598285686, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: orders.Array.data[1].plantType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 925469036598285686, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: orders.Array.data[2].plantType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 925469036598285686, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: orders.Array.data[0].plantSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1709d8289aa4be741bba7f72da433f56, type: 3}
+    - target: {fileID: 925469036598285686, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: orders.Array.data[1].plantSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 090dbd3c1520f1840b59ce72866a2b81, type: 3}
+    - target: {fileID: 925469036598285686, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: orders.Array.data[2].plantSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd78eba3f39cae94daaa14ba4bf68fe3, type: 3}
+    - target: {fileID: 925469036598285686, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: orders.Array.data[0].coinRewardAmount
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 925469036598285686, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: orders.Array.data[1].coinRewardAmount
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 925469036598285686, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: orders.Array.data[2].coinRewardAmount
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 994078700951459112, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

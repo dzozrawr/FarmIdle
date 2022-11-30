@@ -19,7 +19,7 @@ public class WindmillScript : MonoBehaviour
 
     private GameController gameController = null;
 
-    private int lvlUpPrice = 20;
+    private int lvlUpPrice = 80;
     public Canvas canvasForLvlUp = null;
 
     public EndlessRotate endlessRotateOfBlades = null;

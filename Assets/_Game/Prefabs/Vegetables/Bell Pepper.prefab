@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  coinWorth: 5
-  timeNeededToGrow: 2
+  coinWorth: 7
+  timeNeededToGrow: 9
   marketScaleBy: 0.75
   readyForHarvestParticles: {fileID: 3469693836890342685}
   harvestParticles: {fileID: 5766943930352232887}

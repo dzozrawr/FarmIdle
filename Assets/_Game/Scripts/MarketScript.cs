@@ -16,7 +16,7 @@ public class MarketScript : MonoBehaviour
     private static int maxLvl = 1;
 
     private static int lvl = 0;
-    private int lvlUpPrice = 30;
+    private int lvlUpPrice = 170;
 
     private GameController gameController = null;
 
