@@ -31,6 +31,8 @@ public class WindmillScript : MonoBehaviour
     //public GameObject lvlUp
     public GameObject[] windmillModels = null;
 
+    public static int Lvl { get => lvl; set => lvl = value; }
+
 
     // Start is called before the first frame update
     void Start()

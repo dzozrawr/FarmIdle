@@ -20,6 +20,8 @@ public class MarketScript : MonoBehaviour
 
     private GameController gameController = null;
 
+    public static int Lvl { get => lvl; set => lvl = value; }
+
 
     // Start is called before the first frame update
     void Start()
