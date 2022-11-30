@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     private static GameController instance = null;
     private static int coinAmount;
     public static GameController Instance { get => instance; }
-    public static int CoinAmount { get => coinAmount; set=> coinAmount=value;}
+    public static int CoinAmount { get => coinAmount; set => coinAmount = value; }
 
 
     public delegate void TileActionChangeHandler(TileAction newTileAction);
@@ -79,10 +79,17 @@ public class GameController : MonoBehaviour
     {
         //playerController.guidingIndicator.SetTargetAndEnable();
         progressBar.SetMaxProgress(coinsToCompleteLevel);
-        MoneyAmountChangedInc += UpdateProgressOnCoinAmountChanged;
+        MoneyAmountChangedInc += UpdateProgressOnMoneyAmountChanged;
+        MoneyAmountChanged += UpdateProgressOnMoneyAmountChanged;
     }
 
-    private void UpdateProgressOnCoinAmountChanged()
+    private void OnDestroy()
+    {
+        MoneyAmountChangedInc -= UpdateProgressOnMoneyAmountChanged;
+        MoneyAmountChanged -= UpdateProgressOnMoneyAmountChanged;
+    }
+
+    private void UpdateProgressOnMoneyAmountChanged()
     {
         if (moneyEarnedInLevel >= coinsToCompleteLevel)
         {
