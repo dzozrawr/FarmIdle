@@ -34,4 +34,8 @@ public class ShopItem : MonoBehaviour
         isBought=true;
         priceText.transform.parent.gameObject.SetActive(false); //apply the bought visual
     }
+
+    public void SetVisible(bool isVisible){
+        gameObject.SetActive(isVisible);
+    }
 }

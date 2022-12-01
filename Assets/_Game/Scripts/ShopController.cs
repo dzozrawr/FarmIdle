@@ -99,4 +99,13 @@ public class ShopController : MonoBehaviour
     {
         canvas.enabled = isVisible;
     }
+
+    public void SetShopItemVisible(PlantInfo.PlantType type,bool isVisible){
+        foreach (ShopItem item in shopItems)
+        {
+            if(item.type==type){
+                item.SetVisible(isVisible);
+            }
+        } 
+    }
 }

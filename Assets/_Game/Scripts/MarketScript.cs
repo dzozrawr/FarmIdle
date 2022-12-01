@@ -13,6 +13,8 @@ public class MarketScript : MonoBehaviour
 
     public GameObject[] marketModels = null;
 
+    public List<PlantInfo.PlantType> lvlUpUnlockPlants = null;
+
     private static int maxLvl = 1;
 
     private static int lvl = 0;
@@ -59,6 +61,14 @@ public class MarketScript : MonoBehaviour
                 marketModels[1].SetActive(true);
 
                 marketModels[1].GetComponentInChildren<Collider>().enabled = true;
+
+                //unlock new items in shop (make them visible)
+                ShopController shopController = ShopController.Instance;
+                foreach (PlantInfo.PlantType item in lvlUpUnlockPlants)
+                {
+                    shopController.SetShopItemVisible(item, true);
+                }
+
                 break;
         }
         canvasForLvlUp.enabled = false;
@@ -93,6 +103,13 @@ public class MarketScript : MonoBehaviour
                 scaleOfMarket1.PlayTween();
                 scaleOfMarket1.AddDelegateOnComplete(() => { marketModels[1].GetComponentInChildren<Collider>().enabled = true; });
                 //scale out the lvl1 market model and scale in the lvl2 market model (maybe disable the selling functionality meanwhile)
+
+                //unlock new items in shop (make them visible)
+                ShopController shopController = ShopController.Instance;
+                foreach (PlantInfo.PlantType item in lvlUpUnlockPlants)
+                {
+                    shopController.SetShopItemVisible(item, true);
+                }
                 lvl++;
                 break;
         }
@@ -101,8 +118,8 @@ public class MarketScript : MonoBehaviour
         //    lvlUpPrice *= 2;
         //   priceText.text = lvlUpPrice + "";
         canvasForLvlUp.enabled = false;
-        
-        SaveData saveData=new SaveData();
+
+        SaveData saveData = new SaveData();
         SaveSystem.SaveGameAsyncXML(saveData);
         //set UI to show new price
     }

@@ -6984,6 +6984,7 @@ MonoBehaviour:
   marketModels:
   - {fileID: 4135212185730406854}
   - {fileID: 8532291139386850522}
+  lvlUpUnlockPlants: 0300000006000000
 --- !u!65 &7632927623511624621
 BoxCollider:
   m_ObjectHideFlags: 0
