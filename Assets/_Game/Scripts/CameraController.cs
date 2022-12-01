@@ -57,7 +57,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke(nameof(FindHighestCameraPriority), 0.1f);
+        Invoke(nameof(FindHighestCameraPriority), 0.5f);
 //        highestCameraPriority = GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority;
     }
 
