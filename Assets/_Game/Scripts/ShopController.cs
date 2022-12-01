@@ -50,7 +50,7 @@ public class ShopController : MonoBehaviour
         }else{
             foreach(ShopItem item in shopItems){
                 if(!shopItemInfos[item.type].isLocked){
-                    item.SetBoughtVisual();
+                    item.SetBought();
                     ShopItemBoughtEvent?.Invoke(item.type);
                 }
             }

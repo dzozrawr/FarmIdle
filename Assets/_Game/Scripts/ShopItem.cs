@@ -10,6 +10,7 @@ public class ShopItem : MonoBehaviour
 
     private int priceInt;
     private ShopController shopController=null;
+    private bool isBought=false;
 
     public int PriceInt { get => priceInt; set => priceInt = value; }
 
@@ -22,14 +23,15 @@ public class ShopItem : MonoBehaviour
     }
 
     public void OnClick(){
-        if(priceInt<=GameController.CoinAmount){
+        if ((!isBought)&&(priceInt<=GameController.CoinAmount)){
             GameController.Instance.AddMoneyIncrementally(-priceInt);   //reduce the money in game controller
             shopController.BuyShopItem(type);//do the buying logic in shop controller
-            SetBoughtVisual();
+            SetBought();
         }
     }
 
-    public void SetBoughtVisual(){
+    public void SetBought(){
+        isBought=true;
         priceText.transform.parent.gameObject.SetActive(false); //apply the bought visual
     }
 }
