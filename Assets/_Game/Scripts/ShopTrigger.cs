@@ -24,9 +24,8 @@ public class ShopTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
       //  Debug.Log("OnTriggerEnter");
-        if (other.gameObject == player.gameObject)
+        if ((player!=null)&&(other.gameObject == player.gameObject))    //player is null in the beginning, i guess because there is a triggerEnter event before Start()
         {
-         //   Debug.Log("player.SellBackpackContents();");
             player.SellBackpackContents(transform);
         }
     }

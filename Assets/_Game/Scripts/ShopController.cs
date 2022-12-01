@@ -88,8 +88,10 @@ public class ShopController : MonoBehaviour
 
     public void BuyShopItem(PlantInfo.PlantType type){
         shopItemInfos[type].isLocked=false;
-        ShopItemBoughtEvent?.Invoke(type);
-        //fire an event for it to be unlocked
+        ShopItemBoughtEvent?.Invoke(type);  //fire an event for it to be unlocked
+        
+        SaveData saveData=new SaveData();
+        SaveSystem.SaveGameAsyncXML(saveData);
     }
 
 

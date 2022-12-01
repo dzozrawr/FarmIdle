@@ -24,17 +24,17 @@ public static class SaveSystem
         //Serialize the file
         streamer.Seek(0, SeekOrigin.Begin);
         bf.WriteObject(streamer, saveData);
-        char nul=(char) 0;
+        char nul = (char)0;
 
         //bf.ReadObject()
-        string s= System.Text.UTF8Encoding.UTF8.GetString(streamer.GetBuffer());    //doing this, because there were NUL chars at the end of the save file
-        s=s.Split(nul)[0];
+        string s = System.Text.UTF8Encoding.UTF8.GetString(streamer.GetBuffer());    //doing this, because there were NUL chars at the end of the save file
+        s = s.Split(nul)[0];
 
 
-         string b64String = EncodeTo64(s);
+        string b64String = EncodeTo64(s);
 
 
-        byte[] writeBuffer =System.Text.UTF8Encoding.UTF8.GetBytes(b64String);
+        byte[] writeBuffer = System.Text.UTF8Encoding.UTF8.GetBytes(b64String);
         //byte[] writeBuffer = streamer.GetBuffer();
         // byte[] writeBuffer = System.Text.UTF8Encoding.UTF8.GetBytes(b64String);
 
@@ -49,38 +49,30 @@ public static class SaveSystem
     {
         Thread t = new Thread(() =>
         {
-            /*             BinaryFormatter formatter = new BinaryFormatter();
-
-                        FileStream stream = new FileStream(fullSavePath, FileMode.Create);
-
-                        formatter.Serialize(stream, saveData);
-                        stream.Close(); */
-
             FileStream file = File.Create(fullSavePath);
 
             DataContractSerializer bf = new DataContractSerializer(saveData.GetType());
             MemoryStream streamer = new MemoryStream();
 
             //Serialize the file
-            bf.WriteObject(streamer, saveData);
             streamer.Seek(0, SeekOrigin.Begin);
+            bf.WriteObject(streamer, saveData);
+            char nul = (char)0;
 
             //bf.ReadObject()
+            string s = System.Text.UTF8Encoding.UTF8.GetString(streamer.GetBuffer());    //doing this, because there were NUL chars at the end of the save file
+            s = s.Split(nul)[0];
 
-            string b64String = EncodeTo64(System.Text.UTF8Encoding.UTF8.GetString(streamer.GetBuffer()));
-            
 
-            // Debug.Log(System.Text.UTF8Encoding.UTF8.GetString(streamer.GetBuffer()));
-            // Debug.Log(b64String);
+            string b64String = EncodeTo64(s);
+
 
             byte[] writeBuffer = System.Text.UTF8Encoding.UTF8.GetBytes(b64String);
+            //byte[] writeBuffer = streamer.GetBuffer();
+            // byte[] writeBuffer = System.Text.UTF8Encoding.UTF8.GetBytes(b64String);
 
-            //Save to disk
-            // File.WriteAllText(fullSavePath,b64String);
-            // File.WriteAllBytes(fullSavePath,writeBuffer);
-            //file.Write(streamer.GetBuffer(), 0, streamer.GetBuffer().Length);
+
             file.Write(writeBuffer, 0, writeBuffer.Length);
-
             file.Close();
         });
 
@@ -106,13 +98,13 @@ public static class SaveSystem
             string str = System.Text.UTF8Encoding.UTF8.GetString(bytes);
 
 
-             string fromB64String = DecodeFrom64(str);
+            string fromB64String = DecodeFrom64(str);
 
             //  string _byteOrderMarkUtf8 = Encoding.UTF8.GetString(Encoding.UTF8.GetPreamble());
 
             //   Debug.Log(fromB64String);
-             byte[] readBytes = System.Text.UTF8Encoding.UTF8.GetBytes(fromB64String);
-           // byte[] readBytes = System.Text.UTF8Encoding.UTF8.GetBytes(str);
+            byte[] readBytes = System.Text.UTF8Encoding.UTF8.GetBytes(fromB64String);
+            // byte[] readBytes = System.Text.UTF8Encoding.UTF8.GetBytes(str);
 
             streamer.Write(readBytes, 0, readBytes.Length);
 

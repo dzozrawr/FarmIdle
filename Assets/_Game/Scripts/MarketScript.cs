@@ -101,8 +101,9 @@ public class MarketScript : MonoBehaviour
         //    lvlUpPrice *= 2;
         //   priceText.text = lvlUpPrice + "";
         canvasForLvlUp.enabled = false;
-
+        
+        SaveData saveData=new SaveData();
+        SaveSystem.SaveGameAsyncXML(saveData);
         //set UI to show new price
     }
 }
-// kurac xaaxxaxaxaxaaaxaxxa

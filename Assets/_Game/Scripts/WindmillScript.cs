@@ -176,6 +176,10 @@ public class WindmillScript : MonoBehaviour
         lvlUpPrice *= 2;
         priceText.text = lvlUpPrice + "";
         if (lvl >= maxLvl) canvasForLvlUp.enabled = false;
+        
+        SaveData saveData=new SaveData();
+
+        SaveSystem.SaveGameAsyncXML(saveData);
 
         //set UI to show new price
     }
