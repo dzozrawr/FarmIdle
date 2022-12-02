@@ -13725,6 +13725,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1038162502}
     - target: {fileID: 4561699680060391873, guid: 5706f59f1e571be4dbe139c84f894bc2, type: 3}
+      propertyPath: wellScript
+      value: 
+      objectReference: {fileID: 6302767624906052510}
+    - target: {fileID: 4561699680060391873, guid: 5706f59f1e571be4dbe139c84f894bc2, type: 3}
       propertyPath: progressBar
       value: 
       objectReference: {fileID: 6975257154463955666}
@@ -14011,6 +14015,17 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 873172fffe9923746b4af121373f09f9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33e4b105b4098eb46bdf3bfea7bc71cc, type: 3}
+--- !u!114 &6302767624906052510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6302767623597198887, guid: 33e4b105b4098eb46bdf3bfea7bc71cc, type: 3}
+  m_PrefabInstance: {fileID: 6302767624906052509}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e684cf6866a4f44428b2b90dd6337de5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6975257154463955665
 PrefabInstance:
   m_ObjectHideFlags: 0

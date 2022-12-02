@@ -15,6 +15,8 @@ public class TilesPlantTrigger : MonoBehaviour
 
     private Button checkmarkButton = null;
 
+    private Coroutine triggerStayTimer = null;
+
     private void Awake()
     {
 
@@ -32,11 +34,7 @@ public class TilesPlantTrigger : MonoBehaviour
         // Debug.Log("OnTriggerEnter");
         if (!playerController.HasBucketOfWater)
         {
-            cameraController.TransitionToCMVirtualCamera(tilesManager.plantCamera);
-            CheckForCameraBlending.onCameraBlendFinished += OnCameraTransitionToPlantsFinished;
-
-            gameController.playerController.SetJoystickEnabledAndVisible(false);
-            tilesManager.IsInPlantHarvestMode=true;
+            TransitionToPlantHarvestMode();
         }
         else
         {
@@ -44,9 +42,50 @@ public class TilesPlantTrigger : MonoBehaviour
             //playerController.HasBucketOfWater=false;
             tilesManager.SetTilesWet();
             SoundManager.Instance.PlaySound("wateringSound");
-//            Debug.Log("Bucket emptied");
+            //            Debug.Log("Bucket emptied");
+        }
+    }
+
+    private void TransitionToPlantHarvestMode()
+    {
+        cameraController.TransitionToCMVirtualCamera(tilesManager.plantCamera);
+        CheckForCameraBlending.onCameraBlendFinished += OnCameraTransitionToPlantsFinished;
+
+        gameController.playerController.SetJoystickEnabledAndVisible(false);
+        tilesManager.IsInPlantHarvestMode = true;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (!tilesManager.IsInPlantHarvestMode)
+        {
+            if (triggerStayTimer == null) triggerStayTimer = StartCoroutine(TriggerStayTimer());
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (triggerStayTimer != null)
+        {
+            StopCoroutine(triggerStayTimer);
+            triggerStayTimer = null;
+        }
+    }
+
+    IEnumerator TriggerStayTimer()
+    {
+        float duration = 2f;
+        float timeElapsed = 0f;
+
+        while (timeElapsed < duration)
+        {
+            timeElapsed += Time.deltaTime;
+            yield return null;
         }
 
+        TransitionToPlantHarvestMode();
+
+        triggerStayTimer = null;
     }
 
     private void OnCameraTransitionToPlantsFinished()
@@ -72,7 +111,7 @@ public class TilesPlantTrigger : MonoBehaviour
         cameraController.TransitionToCMVirtualCamera(gameController.playerController.followingCamera);
         CheckForCameraBlending.onCameraBlendFinished += OnCameraTransitionToPlayerFinished;
 
-        tilesManager.IsInPlantHarvestMode=false;
+        tilesManager.IsInPlantHarvestMode = false;
 
 
         checkmarkButton.onClick.RemoveAllListeners();
@@ -83,8 +122,9 @@ public class TilesPlantTrigger : MonoBehaviour
         gameController.playerController.SetJoystickEnabledAndVisible(true);
 
         if (gameController.playerController.backpackPlantsList == null || gameController.playerController.backpackPlantsList.Count == 0)
-        {
-            gameController.playerController.guidingIndicator.SetTargetAndEnable(transform);
+        {   //and if player planted something point at well
+            // gameController.playerController.guidingIndicator.SetTargetAndEnable(transform);
+            gameController.playerController.guidingIndicator.SetTargetAndEnable(gameController.wellScript.transform);
         }
         else
         {

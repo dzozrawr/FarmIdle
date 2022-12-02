@@ -40,6 +40,8 @@ public class GameController : MonoBehaviour
 
     public EOLCanvasController EOLCanvasController = null;
 
+    public WellScript wellScript=null;
+
 
 
     #region Raycast variables

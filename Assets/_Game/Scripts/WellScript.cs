@@ -23,12 +23,12 @@ public class WellScript : MonoBehaviour
                 player.SetBucketExistence(true);
 
                 //GameObject plantModel = models[0];
-                wellModel.transform.DOPunchScale(Vector3.one*0.1f,0.2f);
-             //   float startingScale = wellModel.transform.localScale.x * 1.25f;
-             //   wellModel.transform.localScale = new Vector3(startingScale, startingScale, startingScale);
+                wellModel.transform.DOPunchScale(Vector3.one*0.1f,0.2f);    
 
                 scaleEffectTween.PlayTween();
                 SoundManager.Instance.PlaySound("bucketFillSound");
+
+                player.guidingIndicator.SetTargetAndEnable(GameController.Instance.GetClosestPlantTriggerCircle(player.transform));
                 // tweenForPlanting.AddDelegateOnComplete(Grow);
                 //                Debug.Log("Bucket filled!");
                 //trigger animation, set bucket enabled and whatnot
