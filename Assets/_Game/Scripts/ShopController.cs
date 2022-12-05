@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.Serialization;
 
 public class ShopController : MonoBehaviour
 {
     private static ShopController instance = null;
     public static ShopController Instance { get => instance; }
 
-    //public enum PlantT
+    [DataContract]
     public class ShopItemInfo
     {
+        [DataMember]
         public PlantInfo.PlantType type;
+        [DataMember]
         public bool isLocked = true;
+        [DataMember]
         public int price;
     }
 
@@ -24,7 +28,7 @@ public class ShopController : MonoBehaviour
 
     public event ShopItemBoughtHandler ShopItemBoughtEvent;
 
-    private GameController gameController=null;
+    private GameController gameController = null;
 
     private void Awake()
     {
@@ -47,9 +51,13 @@ public class ShopController : MonoBehaviour
 
                 shopItemInfos.Add(item.type, shopItemInfo);
             }
-        }else{
-            foreach(ShopItem item in shopItems){
-                if(!shopItemInfos[item.type].isLocked){
+        }
+        else
+        {
+            foreach (ShopItem item in shopItems)
+            {
+                if (!shopItemInfos[item.type].isLocked)
+                {
                     item.SetBought();
                     ShopItemBoughtEvent?.Invoke(item.type);
                 }
@@ -57,13 +65,15 @@ public class ShopController : MonoBehaviour
         }
     }
 
-    private void Start() {
-        gameController=GameController.Instance;
+    private void Start()
+    {
+        gameController = GameController.Instance;
     }
 
-    public void OnBackButtonClicked(){
-        canvas.enabled=false;
-        gameController.IsRaycastActive=true;
+    public void OnBackButtonClicked()
+    {
+        canvas.enabled = false;
+        gameController.IsRaycastActive = true;
     }
 
 
@@ -78,7 +88,7 @@ public class ShopController : MonoBehaviour
             }
             catch (KeyNotFoundException k)
             {
-                shopItemInfo=null;
+                shopItemInfo = null;
             }
             return shopItemInfo;
         }
@@ -86,11 +96,12 @@ public class ShopController : MonoBehaviour
             return null;
     }
 
-    public void BuyShopItem(PlantInfo.PlantType type){
-        shopItemInfos[type].isLocked=false;
+    public void BuyShopItem(PlantInfo.PlantType type)
+    {
+        shopItemInfos[type].isLocked = false;
         ShopItemBoughtEvent?.Invoke(type);  //fire an event for it to be unlocked
-        
-        SaveData saveData=new SaveData();
+
+        SaveData saveData = new SaveData();
         SaveSystem.SaveGameAsyncXML(saveData);
     }
 
@@ -100,12 +111,14 @@ public class ShopController : MonoBehaviour
         canvas.enabled = isVisible;
     }
 
-    public void SetShopItemVisible(PlantInfo.PlantType type,bool isVisible){
+    public void SetShopItemVisible(PlantInfo.PlantType type, bool isVisible)
+    {
         foreach (ShopItem item in shopItems)
         {
-            if(item.type==type){
+            if (item.type == type)
+            {
                 item.SetVisible(isVisible);
             }
-        } 
+        }
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 using System.Runtime.Serialization;
 using UnityEngine.SceneManagement;
 using static ShopController;
+using UnityEngine.Scripting;
 
 [DataContract]
 public class SaveData
@@ -15,6 +16,9 @@ public class SaveData
     [DataMember]
     public int money;
     [DataMember]
+    public KeyValuePair<PlantInfo.PlantType, ShopItemInfo> s;
+
+    [DataMember]
     public Dictionary<PlantInfo.PlantType, ShopItemInfo> shopItemInfos;
     [DataMember]
     public int windmillLevel;
@@ -22,14 +26,13 @@ public class SaveData
     public int marketLevel;
 
 
-
     public SaveData(int _level)
     {
         level = _level;
         money = GameController.CoinAmount;   //implicit saving of the coin amount for simplicity of the constructor
         shopItemInfos = ShopController.shopItemInfos;
-        windmillLevel=WindmillScript.Lvl;
-        marketLevel=MarketScript.Lvl;
+        windmillLevel = WindmillScript.Lvl;
+        marketLevel = MarketScript.Lvl;
     }
 
     public SaveData()
@@ -37,9 +40,12 @@ public class SaveData
         level = SceneManager.GetActiveScene().buildIndex;
         money = GameController.CoinAmount;   //implicit saving of the coin amount for simplicity of the constructor
         shopItemInfos = ShopController.shopItemInfos;
-        windmillLevel=WindmillScript.Lvl;
-        marketLevel=MarketScript.Lvl;
+        windmillLevel = WindmillScript.Lvl;
+        marketLevel = MarketScript.Lvl;
     }
+
+
+
 
 
 }
