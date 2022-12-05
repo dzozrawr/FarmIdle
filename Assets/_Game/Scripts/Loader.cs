@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tabtale.TTPlugins;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +9,7 @@ public class Loader : MonoBehaviour
     private int levelToLoad=-1;
     private void Awake()
     {
-        //TTPCore.Setup();
+        TTPCore.Setup();
 
         SaveData saveData = SaveSystem.LoadGameXML();
         if (saveData != null)
