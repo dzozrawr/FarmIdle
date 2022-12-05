@@ -15185,10 +15185,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5790624992927380019, guid: e607f465baf12444b85a1bfa3e2579f3, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 146291829}
     - target: {fileID: 5790624992927380028, guid: e607f465baf12444b85a1bfa3e2579f3, type: 3}
       propertyPath: m_Name
       value: EOLCanvas
@@ -15665,6 +15661,10 @@ PrefabInstance:
     - target: {fileID: 994078700951459112, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008753470481333774, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 1678856937381928173, guid: 4b8f7783801f023429865256114bb8e7, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
