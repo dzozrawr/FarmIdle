@@ -15,8 +15,6 @@ public class SaveData
     public int level;
     [DataMember]
     public int money;
-    [DataMember]
-    public KeyValuePair<PlantInfo.PlantType, ShopItemInfo> s;
 
     [DataMember]
     public List<ShopItemInfo> shopItemInfos;
