@@ -19,7 +19,7 @@ public class SaveData
     public KeyValuePair<PlantInfo.PlantType, ShopItemInfo> s;
 
     [DataMember]
-    public Dictionary<PlantInfo.PlantType, ShopItemInfo> shopItemInfos;
+    public List<ShopItemInfo> shopItemInfos;
     [DataMember]
     public int windmillLevel;
     [DataMember]

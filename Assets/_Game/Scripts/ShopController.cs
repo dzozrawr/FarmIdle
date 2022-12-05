@@ -19,7 +19,7 @@ public class ShopController : MonoBehaviour
         public int price;
     }
 
-    public static Dictionary<PlantInfo.PlantType, ShopItemInfo> shopItemInfos = null;
+    public static List<ShopItemInfo> shopItemInfos = null;
     public Canvas canvas = null;
 
     public ShopItem[] shopItems = null;
@@ -41,7 +41,7 @@ public class ShopController : MonoBehaviour
 
         if (shopItemInfos == null)  //a similair check goes on when loading
         {
-            shopItemInfos = new Dictionary<PlantInfo.PlantType, ShopItemInfo>();
+            shopItemInfos = new List<ShopItemInfo>();
             foreach (ShopItem item in shopItems)
             {
                 ShopItemInfo shopItemInfo = new ShopItemInfo();
@@ -49,14 +49,16 @@ public class ShopController : MonoBehaviour
                 //locked by default
                 shopItemInfo.price = item.PriceInt;
 
-                shopItemInfos.Add(item.type, shopItemInfo);
+                shopItemInfos.Add(shopItemInfo);
             }
         }
         else
         {
+            ShopItemInfo s=null;
             foreach (ShopItem item in shopItems)
             {
-                if (!shopItemInfos[item.type].isLocked)
+                s=FindShopItemInfoByType(item.type);
+                if (!s.isLocked)
                 {
                     item.SetBought();
                     ShopItemBoughtEvent?.Invoke(item.type);
@@ -64,6 +66,8 @@ public class ShopController : MonoBehaviour
             }
         }
     }
+
+    
 
     private void Start()
     {
@@ -82,14 +86,15 @@ public class ShopController : MonoBehaviour
         if (shopItemInfos != null)
         {
             ShopItemInfo shopItemInfo = null;
-            try
+
+            foreach (ShopItemInfo s in shopItemInfos)
             {
-                shopItemInfo = shopItemInfos[type];
+                if(s.type==type){
+                    shopItemInfo=s;
+                    break;
+                } 
             }
-            catch (KeyNotFoundException k)
-            {
-                shopItemInfo = null;
-            }
+
             return shopItemInfo;
         }
         else
@@ -98,7 +103,8 @@ public class ShopController : MonoBehaviour
 
     public void BuyShopItem(PlantInfo.PlantType type)
     {
-        shopItemInfos[type].isLocked = false;
+        ShopItemInfo shopItemInfo= FindShopItemInfoByType(type);
+        shopItemInfo.isLocked = false;
         ShopItemBoughtEvent?.Invoke(type);  //fire an event for it to be unlocked
 
         SaveData saveData = new SaveData();

@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R5CT61YDM6Y",
         "name": "com.labrats.farmingidle3d",
-        "processId": 23416,
+        "processId": 26712,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -54,6 +54,12 @@
             "deviceId": "R5CT61YDM6Y",
             "name": "com.labrats.farmingidle3d",
             "processId": 23416,
+            "exited": true
+        },
+        {
+            "deviceId": "R5CT61YDM6Y",
+            "name": "com.labrats.farmingidle3d",
+            "processId": 26712,
             "exited": false
         }
     ],
